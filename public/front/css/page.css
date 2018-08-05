@@ -1,0 +1,92 @@
+.header_area {
+	background: #17181b;
+}
+
+.section_padding_100 {
+    padding-top:  220px;
+}
+
+.footer-contact-area {
+    background: #17181b;
+}
+
+.footer-contact-area .line-shape {
+    margin-left: 0;
+}
+
+.footer-contact-area .heading-text > p {
+    margin-top: 50px;
+}
+
+.footer-contact-area .heading-text {
+    margin-bottom: 50px;
+}
+
+.form-control  {
+    border: 1;
+}
+
+.address-text > p > span,
+.phone-text > p > span,
+.email-text > p > span {
+    color: #ffc107;
+}
+
+.btn.submit-btn {
+    background: #ffc107;
+    height: 48px;
+    min-width: 185px;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.btn.submit-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn.btn-success-c {
+    background: #28a745;
+}
+
+.btn.btn-danger-c {
+    background: #dc3545;
+}
+
+.section-heading > h2 {
+    font-weight: 300;
+    color: #fff;
+    font-size: 48px;
+    margin: 0;
+}
+
+.btn.submit-btn:hover {
+    background: #fff;
+    color: #000;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+p {
+    color: #fff;
+}
+
+#name, #email, #message , #password, #cpassword, #first_name, #last_name, #gender, #photo{
+    font-size: 18px;
+    padding: 15px 15px;
+    border-radius: 31px;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: 52px;
+}
+
+.form-control {
+    line-height: 1;
+}
+
+.pd10 {
+    padding-top: 10px;
+}
