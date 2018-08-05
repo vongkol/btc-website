@@ -25,6 +25,9 @@ class FrontController extends Controller
         return view('fronts.index', $data);
    }
 
+   public function dashboard() {
+       return view('fronts.dashboard');
+   }
    // view post detail
    public function post($id)
    {

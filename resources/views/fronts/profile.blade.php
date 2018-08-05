@@ -46,7 +46,6 @@
         </div>
         <p>&nbsp;</p>
         <hr>
-        <p>&nbsp;</p>
     </section>
     <script>
         function loadFile(e){

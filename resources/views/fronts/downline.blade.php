@@ -1,8 +1,7 @@
 @extends('layouts.front')
 @section('content')
     <link href="{{asset('front/css/page.css')}}" rel="stylesheet">
-    <!-- ***** Contact Us Area Start ***** -->
-    <section class="footer-contact-area section_padding_100 clearfix" id="contact">
+    <section class="footer-contact-area section_padding_100" id="contact">
         <div class="container">
             <h2 class="text-white">My Downlines</h2>
         </div>
@@ -38,7 +37,6 @@
         </div>
         <p>&nbsp;</p>
         <hr>
-        <p>&nbsp;</p>
     </section>
   
 @endsection

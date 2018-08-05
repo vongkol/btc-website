@@ -126,7 +126,7 @@
         </div>
     </section>
 
-  <section class="our-monthly-membership section_padding_50 clearfix">
+  <section class="our-monthly-membership section_padding_50">
       <div class="container">
           <div class="row align-items-center">
               <div class="col-md-8">

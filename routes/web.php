@@ -20,6 +20,7 @@ Route::get('/membership/forget-password', 'SigninController@forget_password');
 Route::post('/membership/recovery', 'SigninController@recovery_password');
 Route::get('/membership/service/reset/{id}', "SigninController@new_password");
 Route::post('/membership/service/update', "SigninController@update_password");
+Route::get('/dashboard', "FrontController@dashboard");
 // buy plan
 Route::get('/buyplan/{id}', 'FrontController@buy');
 Route::get('/confirm/buy', 'FrontController@confirm');

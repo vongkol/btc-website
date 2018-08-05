@@ -9,7 +9,9 @@
 .footer-contact-area {
     background: #17181b;
 }
-
+.navbar-light .navbar-brand {
+    color: #fff;
+}
 .footer-contact-area .line-shape {
     margin-left: 0;
 }

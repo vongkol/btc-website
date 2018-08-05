@@ -6,18 +6,10 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
     <title>Bill-Trade.</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
     <link href="{{asset('front/style.css')}}" rel="stylesheet">
-
-    <!-- Responsive CSS -->
     <link href="{{asset('front/css/responsive.css')}}" rel="stylesheet">
     <style>
         div#btc1>div>div:last-child{
@@ -102,7 +94,7 @@
         @yield('content')
 
     <!-- ***** Footer Area Start ***** -->
-    <footer class="footer-social-icon text-center section_padding_70 clearfix">
+    <footer class="footer-social-icon text-center section_padding_70">
         <!-- footer logo -->
         <div class="footer-text">
             <h2>Bill-<span class="text-yellow">Trade.</span></h2>
@@ -136,10 +128,7 @@
     <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
     <!-- All Plugins JS -->
     <script src="{{asset('front/js/plugins.js')}}"></script>
-    <!-- Slick Slider Js-->
-    <script src="{{asset('front/js/slick.min.js')}}"></script>
-    <!-- Footer Reveal JS -->
-    <script src="{{asset('front/js/footer-reveal.min.js')}}"></script>
+    
     <!-- Active JS -->
     <script src="{{asset('front/js/active.js')}}"></script>
     @yield('js')

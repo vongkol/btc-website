@@ -38,7 +38,6 @@
         </div>
         <p>&nbsp;</p>
         <hr>
-        <p>&nbsp;</p>
     </section>
   
 @endsection
