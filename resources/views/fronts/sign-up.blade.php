@@ -1,9 +1,13 @@
 @extends('layouts.front')
 @section('content')
     <link href="{{asset('front/css/page.css')}}" rel="stylesheet">
-    <div class="container" style="margin-top: 170px">
-        <h1 class="text-primary">Register</h1>
-        <hr>
+    <section class="footer-contact-area wellcome_area section_padding_100 ">
+        <div class="container">
+        <h1 class="text-white">Register</h1>
+        </div>
+    </section>
+    <p></p>
+    <div class="container">
         <div class="row">
             <div class="col-sm-8">
                 @if(Session::has('sms'))
@@ -115,7 +119,7 @@
                     <div class="form-group row">
                         <label for="" class="control-label col-sm-3">&nbsp;</label>
                         <div class="col-sm-9">
-                            <button class="btn btn-success">Sign Up</button>
+                            <button class="btn submit-btn">Sign Up</button>
                         </div>
                     </div>
                 </form>
@@ -136,7 +140,7 @@
                             </div>
                            
                             <div class="col-12">
-                                <button type="submit" class="btn submit-btn  btn-success-c">Sign Up</button>
+                                <button type="submit" class="btn submit-btn">Sign Up</button>
                             </div>
                         </div>
                         </form>
