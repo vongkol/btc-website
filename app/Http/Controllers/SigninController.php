@@ -34,7 +34,7 @@ class SigninController extends Controller
                 // save user to session
                 $r->session()->put('membership', $membership);
               
-                return redirect('/');
+                return redirect('/dashboard');
             }
             else{
                 $r->session()->flash('sms1', "Invalid email or password. Try again!");
