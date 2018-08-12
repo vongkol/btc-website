@@ -86,6 +86,15 @@ class FrontController extends Controller
        {
            return redirect('/sign-in');
        }
+       // check if the member already have a plan
+       $plan = DB::table('orders')
+        ->where('member_id', $member->id)
+        ->where('status', 1)
+        ->first();
+       if($plan!=null)
+       {
+           return view('fronts.have-plan');
+       }
        $data['plan'] = DB::table('plans')->where('id', $id)->first();
        return view('fronts.buy', $data);
    }
@@ -152,7 +161,7 @@ class FrontController extends Controller
                     Thanks for your order. We are proccessing your order. We will get back to you soon!
                 </p>
 EOT;
-            Right::send_email($member->email, "Your Order Confirmation", $sms);
+           // Right::send_email($member->email, "Your Order Confirmation", $sms);
             $sms1 = <<<EOT
             <h3>New Order Request</h3>
             <hr>
@@ -204,7 +213,7 @@ EOT;
             $emails = DB::table('admin_emails')->get();
             foreach($emails as $m)
             {
-                Right::send_email($m->email, "New Order Request", $sms1);
+               // Right::send_email($m->email, "New Order Request", $sms1);
             }
             return view('fronts.success');
         }
@@ -325,4 +334,24 @@ EOT;
         }
         
    }
+   // get payment method
+   public function get_method()
+   {
+       $method = DB::table('payment_method')->where('id', 1)->first();
+       return json_encode($method);
+   }
+   public function investment()
+   {
+        $member = session('membership');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['order'] = DB::table('orders')
+            ->where('member_id', $member->id)
+            ->where('status', 1)
+            ->first();
+        return view('fronts.investment', $data);
+   }
+
 }

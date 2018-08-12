@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 11, 2018 at 10:45 PM
--- Server version: 10.1.26-MariaDB-0+deb9u1
--- PHP Version: 7.2.7-1+0~20180622080745.23+stretch~1.gbpfd8e2e
+-- Generation Time: Aug 12, 2018 at 03:55 PM
+-- Server version: 5.7.22-0ubuntu0.16.04.1
+-- PHP Version: 7.1.19-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -405,17 +405,6 @@ CREATE TABLE `orders` (
   `payment_type` varchar(30) NOT NULL DEFAULT 'cash'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_date`, `plan_id`, `member_id`, `status`, `create_at`, `payment_type`) VALUES
-(1, '2018-07-18', 5, 4, 1, '2018-07-18 07:57:15', 'cash'),
-(2, '2018-07-18', 5, 1, 1, '2018-07-18 08:52:28', 'cash'),
-(3, '2018-07-27', 2, 1, 1, '2018-07-27 05:36:55', 'crypto'),
-(4, '2018-07-27', 2, 1, 0, '2018-07-27 05:39:03', 'cash'),
-(5, '2018-07-27', 2, 1, 0, '2018-07-27 05:39:45', 'crypto');
-
 -- --------------------------------------------------------
 
 --
@@ -464,6 +453,25 @@ CREATE TABLE `payments` (
 
 INSERT INTO `payments` (`id`, `request_date`, `score`, `amount`, `status`, `create_at`, `member_id`) VALUES
 (3, '2018-07-18', 500, 5, 1, '2018-07-18 14:31:54', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_method`
+--
+
+CREATE TABLE `payment_method` (
+  `id` int(11) NOT NULL,
+  `bank` text NOT NULL,
+  `crypto` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `payment_method`
+--
+
+INSERT INTO `payment_method` (`id`, `bank`, `crypto`) VALUES
+(1, 'ABA: 000223945 Name: HENG Vongkol', '0xae0fa19d67eb858791874fa1fedb0c3a9c0f97bc9b218e9048316aaa9916c90d');
 
 -- --------------------------------------------------------
 
@@ -838,6 +846,12 @@ ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment_method`
+--
+ALTER TABLE `payment_method`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -929,7 +943,7 @@ ALTER TABLE `memberships`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -942,6 +956,12 @@ ALTER TABLE `pages`
 --
 ALTER TABLE `payments`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `payment_method`
+--
+ALTER TABLE `payment_method`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `permissions`

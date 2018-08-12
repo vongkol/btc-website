@@ -75,11 +75,11 @@ p {
     color: #fff;
 }
 
-#name, #email, #message , #password, #cpassword, #first_name, #last_name, #gender, #photo{
+/* #name, #email, #message , #password, #cpassword, #first_name, #last_name, #gender, #photo{
     font-size: 18px;
     padding: 15px 15px;
     border-radius: 31px;
-}
+} */
 
 select.form-control:not([size]):not([multiple]) {
     height: 52px;
