@@ -103,6 +103,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/social')}}"><i class="fa fa-facebook text-info"></i> Social</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{url('/admin/payment-method')}}" class="nav-link"><i class="fa fa-usd text-pink"></i> Payment Method</a>
+                    </li>
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">
                             <i class="fa fa-key text-danger"></i> Security</a>
@@ -112,9 +115,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{url('/role')}}" class="nav-link"><i class="fa fa-shield text-info"></i> Roles</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('/admin/payment-method')}}" class="nav-link"><i class="fa fa-usd text-pink"></i> Payment Method</a>
                                 </li>
                             </ul>
                             

@@ -5,6 +5,7 @@
         color: #000;
     }
 </style>
+
 <button type="button" id="sidebarCollapse" class="btn btn-dark">
     <i class="fa fa-paper-plane mr-8"></i> 
     <span>Transaction</span>
@@ -14,7 +15,7 @@
     <div class="col-sm-12">
         <h4 class="text-danger">Your Total Earning: $ {{$user->score}}</h4>
         <p></p>
-        <table class="table table-sm">
+        <table class="table">
             <thead>
                 <tr>
                     <th>&numero;</th>

@@ -45,8 +45,8 @@ span {
     font-weight: 700;
 }
 #sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
+    min-width: 95px;
+    max-width: 95px;
     text-align: center;
     padding-top: 100px;
 }
