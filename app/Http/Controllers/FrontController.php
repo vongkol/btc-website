@@ -285,29 +285,29 @@ EOT;
         {
             return redirect('/sign-in');
         }
-        $data['rate'] = DB::table('rates')->where('id',1)->first();
+        $data['user'] = DB::table('memberships')->where('id', $member->id)->first();
         return view('fronts.request', $data);
    }
    public function request_payment(Request $r)
    {
         $member = session('membership');
+        $user = DB::table('memberships')->where('id', $member->id)->first();
         if($member==null)
         {
             return redirect('/sign-in');
         }
         $score = $r->score;
-        if($score>$member->score)
+        if($score > $user->score)
         {
-            $r->session()->flash('sms1', "Your score is not enough!");
+            $r->session()->flash('sms1', "Your balance is not enough!");
             return redirect('/request');
         }
         else{
-            $rate = DB::table('rates')->where('id',1)->first();
-            $amount = $score * $rate->rate;
+            
+            $amount = $score;
             $data = array(
                 'request_date' => date('Y-m-d'),
                 'score' => $score,
-                'amount' => $amount,
                 'member_id' => $member->id
             );
             DB::table('payments')->insert($data);
@@ -316,7 +316,7 @@ EOT;
             <p>Dear {$member->first_name} {$member->last_name},</p>
             <br>
             <p>
-                You have requested payment with this score: {$score}. We are proccessing it and will get back to you soon!
+                You have requested payment with this amount: $ {$score}. We are proccessing it and will get back to you soon!
             </p>
 EOT;
             Right::send_email($member->email, "Payment Request", $sms);
@@ -365,11 +365,40 @@ EOT;
         {
             return redirect('/sign-in');
         }
-        $data['order'] = DB::table('orders')
-            ->where('member_id', $member->id)
+        $data['plan'] = DB::table('orders')
+            ->join('plans', 'orders.plan_id', 'plans.id')
+            ->where('orders.member_id', $member->id)
             ->where('status', 1)
+            ->select('plans.*', 'orders.order_date', 'orders.status', 'orders.payment_type')
             ->first();
         return view('fronts.investment', $data);
+   }
+   public function earning()
+   {
+        $member = session('membership');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['user'] = DB::table('memberships')
+            ->where('id', $member->id)
+            ->first();
+        return view('fronts.earning', $data);
+   }
+   public function transaction()
+   {
+        $member = session('membership');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['pays'] = DB::table('payments')
+            ->where('member_id', $member->id)
+            ->paginate(2);
+        $data['user'] = DB::table('memberships')
+            ->where('id', $member->id)
+            ->first();
+        return view('fronts.transaction', $data);
    }
 
 }

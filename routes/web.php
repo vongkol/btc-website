@@ -22,6 +22,8 @@ Route::get('/membership/service/reset/{id}', "SigninController@new_password");
 Route::post('/membership/service/update', "SigninController@update_password");
 Route::get('/dashboard', "FrontController@dashboard");
 Route::get('/investment', "FrontController@investment");
+Route::get('/earning', "FrontController@earning");
+Route::get('/transaction', "FrontController@transaction");
 Route::get('/method/get', "FrontController@get_method");
 // buy plan
 Route::get('/buyplan/{id}', 'FrontController@buy');

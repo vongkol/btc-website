@@ -117,13 +117,13 @@
                     </a>
                 </li>
                 <li id='menu_earning'>
-                    <a href="#" class="text-white"> 
+                    <a href="{{url('/earning')}}" class="text-white"> 
                         <i class="fa fa-th text-warning"></i>
                         My Earning
                     </a>
                 </li>
                 <li id='menu_transaction'>
-                    <a href="#" class="text-white"> 
+                    <a href="{{url('/transaction')}}" class="text-white"> 
                         <i class="fa fa-paper-plane text-warning"></i>
                         Transaction
                     </a>

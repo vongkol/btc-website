@@ -33,7 +33,6 @@ class PaymentController extends Controller
                 ->delete();
             return redirect('/admin/payment');
         }
-       
     }
     public function approve($id)
     {
@@ -55,7 +54,7 @@ class PaymentController extends Controller
                 Request Date: {$p->request_date}
             </p>
             <p>
-                Score: {$p->score}
+                Amount: $ {$p->score}
             </p>
 EOT;
         Right::send_email($m->email, "Payment Request Approval", $sms);

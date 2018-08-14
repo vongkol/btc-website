@@ -1,21 +1,20 @@
-@extends('layouts.front')
+@extends('layouts.user')
 @section('content')
-    <link href="{{asset('front/css/page.css')}}" rel="stylesheet">
-    <!-- ***** Contact Us Area Start ***** -->
-    <section class="footer-contact-area section_padding_100 clearfix" id="contact">
-        <div class="container">
-            <h2 class="text-white">Payment Request</h2>
+<style>
+        p, div{
+            color: #000;
+        }
+    </style>
+    <button type="button" id="sidebarCollapse" class="btn btn-dark">
+        <i class="fa fa-dollar mr-8"></i> 
+        <span>Payment Request</span>
+    </button>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="text-success">
+                Thanks for your payment request. We are processing and will get back to you soon!
+            </h3>
         </div>
-    </section>
-    <section>
-        <div class="container" style="margin-top: 54px">
-           <h3 class="text-success">
-               Thanks for your payment request. We are processing and will get back to you soon!
-           </h3>
-        </div>
-        <p>&nbsp;</p>
-        <hr>
-        <p>&nbsp;</p>
-    </section>
-
+    </div>
 @endsection
