@@ -26,7 +26,25 @@ class FrontController extends Controller
    }
 
    public function dashboard() {
-       return view('fronts.dashboard');
+        $member = session('membership');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+       // get plan investment
+       $data['plan'] = DB::table('orders')
+        ->join('plans', 'orders.plan_id', 'plans.id')
+        ->where('member_id', $member->id)
+        ->where('orders.status', 1)
+        ->select('plans.*')
+        ->first();
+        $data['user'] = DB::table('memberships')
+            ->where('id', $member->id)
+            ->first();
+        $data['line'] = DB::table('memberships')
+            ->where('refby', md5($member->id))
+            ->count();
+       return view('fronts.dashboard', $data);
    }
    // view post detail
    public function post($id)

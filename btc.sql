@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2018 at 03:55 PM
+-- Generation Time: Aug 14, 2018 at 07:09 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.1.19-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -387,7 +387,7 @@ CREATE TABLE `memberships` (
 --
 
 INSERT INTO `memberships` (`id`, `first_name`, `last_name`, `gender`, `email`, `country`, `city`, `postal_code`, `username`, `password`, `photo`, `refby`, `score`, `active`, `create_at`, `recovery_mode`, `verify`) VALUES
-(1, 'HENG', 'Vongkol', 'Male', 'hengvongkol@gmail.com', 'Cambodia', 'Phnom Penh', '855', 'vongkol', '$2y$10$Podu1x8eSQW0xDp2tgFY4eGnmTx9mnyHgr0iIpXlVZl5RpDds4cPm', NULL, NULL, 0, 1, '2018-07-27 05:35:12', 0, 1);
+(1, 'HENG', 'Vongkol', 'Male', 'hengvongkol@gmail.com', 'Cambodia', 'Phnom Penh', '855', 'vongkol', '$2y$10$J15F1HHIXfQWDohvM5AxKu5M5HZVUgPKkmvNkU7Rfx2smpHzbCrZ2', NULL, NULL, 0, 1, '2018-07-27 05:35:12', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -404,6 +404,13 @@ CREATE TABLE `orders` (
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `payment_type` varchar(30) NOT NULL DEFAULT 'cash'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_date`, `plan_id`, `member_id`, `status`, `create_at`, `payment_type`) VALUES
+(1, '2018-08-14', 3, 1, 1, '2018-08-14 10:58:38', 'crypto');
 
 -- --------------------------------------------------------
 
@@ -943,7 +950,7 @@ ALTER TABLE `memberships`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pages`
