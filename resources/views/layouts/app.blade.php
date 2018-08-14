@@ -113,6 +113,9 @@
                                 <li class="nav-item">
                                     <a href="{{url('/role')}}" class="nav-link"><i class="fa fa-shield text-info"></i> Roles</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{url('/admin/payment-method')}}" class="nav-link"><i class="fa fa-usd text-pink"></i> Payment Method</a>
+                                </li>
                             </ul>
                             
                     </li>

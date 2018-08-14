@@ -144,3 +144,8 @@ Route::get('/admin/payment', "PaymentController@index");
 Route::get('/admin/payment/detail/{id}', "PaymentController@detail");
 Route::get('/admin/payment/delete/{id}', "PaymentController@delete");
 Route::get('/admin/payment/approve/{id}', "PaymentController@approve");
+
+// payment method
+Route::get('/admin/payment-method', "PaymentMethodController@index");
+Route::get('/admin/payment-method/edit/{id}', "PaymentMethodController@edit");
+Route::post('/admin/payment-method/update', "PaymentMethodController@update");
