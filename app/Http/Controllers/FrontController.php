@@ -44,6 +44,12 @@ class FrontController extends Controller
         $data['line'] = DB::table('memberships')
             ->where('refby', md5($member->id))
             ->count();
+        $m = date('m');
+        $y = date('Y');
+        $data['pays'] = DB::table('payments')
+            ->where(DB::raw('month(request_date)'), (int)$m)
+            ->where(DB::raw('year(request_date)'), (int)$y)
+            ->get();
        return view('fronts.dashboard', $data);
    }
    // view post detail
@@ -394,7 +400,22 @@ EOT;
         }
         $data['pays'] = DB::table('payments')
             ->where('member_id', $member->id)
-            ->paginate(2);
+            ->paginate(18);
+        $data['user'] = DB::table('memberships')
+            ->where('id', $member->id)
+            ->first();
+        return view('fronts.transaction', $data);
+   }
+   public function network()
+   {
+        $member = session('membership');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['pays'] = DB::table('payments')
+            ->where('member_id', $member->id)
+            ->paginate(18);
         $data['user'] = DB::table('memberships')
             ->where('id', $member->id)
             ->first();

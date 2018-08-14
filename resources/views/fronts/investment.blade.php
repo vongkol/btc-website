@@ -6,7 +6,7 @@
     }
 </style>
 <button type="button" id="sidebarCollapse" class="btn btn-dark">
-    <i class="fa fa-dollar mr-8"></i> 
+    <i class="fa fa-bars mr-8"></i> 
     <span>My Investment</span>
 </button>
 <hr>

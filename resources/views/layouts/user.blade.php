@@ -67,10 +67,10 @@
                                     </button>
                                     <div class="dropdown-menu ">
                                         <a class="dropdown-item text-warning" href="{{url('/dashboard')}}">Dashboard</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/profile')}}"> Profile</a>
+                                        {{-- <a class="dropdown-item text-warning" href="{{url('/profile')}}"> Profile</a>
                                         <a class="dropdown-item text-warning" href="{{url('/order')}}"> Orders </a>
                                         <a class="dropdown-item text-warning" href="{{url('/payment')}}"> Payment Request</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/downline')}}"> Downlines</a>
+                                        <a class="dropdown-item text-warning" href="{{url('/downline')}}"> Downlines</a> --}}
                                         <a class="dropdown-item text-danger" href="{{url('membership/sign-out')}}">Sign Out</a>
                                     </div>
                                 </div>
@@ -107,19 +107,19 @@
                 <li id='menu_profile'>
                     <a href="{{url('/profile')}}" class="text-white"> 
                         <i class="fa fa-user text-warning"></i>
-                        My Profile
+                        Profile
                     </a>
                 </li>
                 <li id='menu_investment'>
                     <a href="{{url('/investment')}}" class="text-white"> 
                         <i class="fa fa-dollar text-warning"></i>
-                        My Investment
+                        Investment
                     </a>
                 </li>
                 <li id='menu_earning'>
                     <a href="{{url('/earning')}}" class="text-white"> 
                         <i class="fa fa-th text-warning"></i>
-                        My Earning
+                        Earning
                     </a>
                 </li>
                 <li id='menu_transaction'>
@@ -129,9 +129,9 @@
                     </a>
                 </li>
                 <li id='menu_network'>
-                    <a href="#" class="text-white"> 
+                    <a href="{{url('/downline')}}" class="text-white"> 
                         <i class="fa fa-globe text-warning"></i>
-                        My Network
+                        Network
                     </a>
                 </li>
             </ul>

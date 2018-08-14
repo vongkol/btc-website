@@ -22,7 +22,7 @@
                             {{$plan->name}} : <span class="text-warning">$ {{$plan->price}}</span>
                         </div>
                         <div class="text-warning text-center">
-                            <a href="#" class="btn btn-warning btn-sm">View Detail</a>
+                            <a href="{{url('/investment')}}" class="btn btn-warning btn-sm">View Detail</a>
                         </div>
                     @endif
                     <div>
@@ -36,11 +36,11 @@
                 <div class="card-header"><span class="text-db">Total Earning</span>  <i class="fa fa-money text-warning fa-2x float-right"></i> </div>
                 <div class="card-body">
                     <div class="text-center text-white">
-                        So far earning ...
-                    </div>
-                    <div>
-                        
                         <span class="text-db text-warning">$ {{$user->score}}</span>
+                        
+                    </div>
+                    <div class="text-center">
+                        <a href="{{url('/earning')}}" class="btn btn-warning btn-sm">View Detail</a>
                     </div>
                 </div>
             </div>
@@ -53,13 +53,38 @@
                         Downline: {{$line}}
                     </div>
                     <div class="text-center">
-                        <a href="#" class="btn btn-warning btn-sm">View Detail</a>
+                        <a href="{{url('/downline')}}" class="btn btn-warning btn-sm">View Detail</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="text-primary">Transaction This Month</h3>
+            <table class="table">
+                    <thead>
+                        <tr>
+                            <th>&numero;</th>
+                            <th>Request Date</th>
+                            <th>Request Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php($i=1)
+                        @foreach($pays as $l)
+                            <tr>
+                                <td>{{$i++}}</td>
+                                <td>{{$l->request_date}}</td>
+                                <td>$ {{$l->score}}</td>
+                                <td>{{$l->status==1?'Approved':'Pending'}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+        </div>
+    </div>
 @endsection
 @section('js')
     <script>

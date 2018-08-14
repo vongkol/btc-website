@@ -8,13 +8,11 @@
 
 <button type="button" id="sidebarCollapse" class="btn btn-dark">
     <i class="fa fa-bars mr-8"></i> 
-    <span>Transaction</span>
+    <span>My Network</span>
 </button>
 <hr>
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="text-danger">Your Total Earning: $ {{$user->score}}</h4>
-        <p></p>
         <table class="table">
             <thead>
                 <tr>
@@ -25,18 +23,9 @@
                 </tr>
             </thead>
             <tbody>
-                @php($i=1)
-                @foreach($pays as $l)
-                    <tr>
-                        <td>{{$i++}}</td>
-                        <td>{{$l->request_date}}</td>
-                        <td>$ {{$l->score}}</td>
-                        <td>{{$l->status==1?'Approved':'Pending'}}</td>
-                    </tr>
-                @endforeach
+               
             </tbody>
         </table>
-        {{$pays->links()}}
     </div>
 </div>
 @endsection
@@ -44,7 +33,7 @@
     <script>
         $(document).ready(function(){
             $("#menu>li").removeClass('active');
-            $("#menu_transaction").addClass('active');
+            $("#menu_network").addClass('active');
         });
     </script>
 @endsection

@@ -64,10 +64,10 @@
                                     </button>
                                     <div class="dropdown-menu ">
                                         <a class="dropdown-item text-warning" href="{{url('/dashboard')}}">Dashboard</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/profile')}}"> Profile</a>
+                                        {{-- <a class="dropdown-item text-warning" href="{{url('/profile')}}"> Profile</a>
                                         <a class="dropdown-item text-warning" href="{{url('/order')}}"> Orders </a>
                                         <a class="dropdown-item text-warning" href="{{url('/payment')}}"> Payment Request</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/downline')}}"> Downlines</a>
+                                        <a class="dropdown-item text-warning" href="{{url('/downline')}}"> Downlines</a> --}}
                                         <a class="dropdown-item text-danger" href="{{url('membership/sign-out')}}">Sign Out</a>
                                     </div>
                                 </div>

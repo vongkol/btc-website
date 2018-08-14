@@ -2,7 +2,7 @@
 @section('content')
     <!-- ***** Contact Us Area Start ***** -->
 <button type="button" id="sidebarCollapse" class="btn btn-dark">
-    <i class="fa fa-user mr-8"></i> 
+    <i class="fa fa-bars mr-8"></i> 
     <span>Edit Profile</span>
 </button>
 <hr>
