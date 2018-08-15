@@ -185,7 +185,7 @@ class FrontController extends Controller
                     Thanks for your order. We are proccessing your order. We will get back to you soon!
                 </p>
 EOT;
-           // Right::send_email($member->email, "Your Order Confirmation", $sms);
+           Right::send_email($member->email, "Your Order Confirmation", $sms);
             $sms1 = <<<EOT
             <h3>New Order Request</h3>
             <hr>

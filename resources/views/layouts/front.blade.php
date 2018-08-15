@@ -86,7 +86,6 @@
                         </div>
                     </div>
                 </div>
-               
                 @endif
             </div>
         </div>
@@ -98,7 +97,7 @@
     <footer class="footer-social-icon text-center section_padding_70">
         <!-- footer logo -->
         <div class="footer-text">
-            <h2>Bill-<span class="text-yellow">Trade.</span></h2>
+            <h2>Bill-<span class="text-yellow">Trade</span></h2>
         </div>
         <!-- social icon-->
         <?php $socials = DB::table('socials')->orderBy('order_number', 'asc')->where('active',1)->get();?>
