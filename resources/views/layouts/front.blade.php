@@ -22,8 +22,6 @@
 </head>
 
 <body>
-
-
     <!-- ***** Header Area Start ***** -->
     <header class="header_area animated">
         <div class="container-fluid">

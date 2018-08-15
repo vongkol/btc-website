@@ -18,6 +18,9 @@
         line-height: 36px;
         font-size: 14px;
     }
+    .map {
+        height: 600px;
+    }
     .welcome-thumb {
         width: 50%;
         bottom: -100px;
@@ -37,6 +40,9 @@
 @media (min-width: 768px) and (max-width: 991px) {
     .header_area {
         padding: 0;
+    }
+    .map {
+        height: 600px;
     }
     .container-c {
         max-width: 700px;
@@ -138,6 +144,9 @@
     }
     .map {
         height: 250px;
+    }
+    .mobile-slide-text {
+        display: none;
     }
     .mobile-plan {
         margin-bottom: 35px;

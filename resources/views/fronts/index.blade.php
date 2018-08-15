@@ -21,14 +21,14 @@
                     <div class="carousel-item active">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" width="100%">
                         <div class="carousel-caption slide-text">
-                        <h3 class="text-white">{{$slide->name}}</h3>
+                        <h3 class="text-white mobile-slide-text">{{$slide->name}}</h3>
                         </div>   
                     </div>
                 @else
                     <div class="carousel-item">
                         <img src="{{asset('front/slides/'.$slide->photo)}}" width="100%">
                         <div class="carousel-caption slide-text" >
-                        <h3 class="text-white">{{$slide->name}}</h3>
+                        <h3 class="text-white mobile-slide-text">{{$slide->name}}</h3>
                         </div>   
                     </div>
                 @endif
