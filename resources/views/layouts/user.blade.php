@@ -65,12 +65,9 @@
                                     <button type="button" class="btn btn-warning btn-member-left text-white btn-member dropdown-toggle" data-toggle="dropdown">
                                     {{session('membership')->first_name}} {{session('membership')->last_name}}
                                     </button>
-                                    <div class="dropdown-menu ">
+                                   
+                                    <div class="dropdown-menu">
                                         <a class="dropdown-item text-warning" href="{{url('/dashboard')}}">Dashboard</a>
-                                        {{-- <a class="dropdown-item text-warning" href="{{url('/profile')}}"> Profile</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/order')}}"> Orders </a>
-                                        <a class="dropdown-item text-warning" href="{{url('/payment')}}"> Payment Request</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/downline')}}"> Downlines</a> --}}
                                         <a class="dropdown-item text-danger" href="{{url('membership/sign-out')}}">Sign Out</a>
                                     </div>
                                 </div>
@@ -151,7 +148,7 @@
     <footer class="footer-social-icon text-center section_padding_70">
         <!-- footer logo -->
         <div class="footer-text">
-            <h2>Bill-<span class="text-yellow">Trade.</span></h2>
+            <h2>Bill-<span class="text-yellow">Trade</span></h2>
         </div>
         <!-- social icon-->
         <?php $socials = DB::table('socials')->orderBy('order_number', 'asc')->where('active',1)->get();?>

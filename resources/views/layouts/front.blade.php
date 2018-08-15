@@ -46,6 +46,12 @@
                                             <a class="nav-link" href="{{$m->url}}">{{$m->name}}</a>
                                         </li>
                                     @endforeach
+                                    <div class="sing-up-button d-lg-none">
+                                        <a href="{{url('sign-in')}}">Sign In</a>
+                                    </div>
+                                    <div class="sing-up-button  d-lg-none">
+                                    <a href="{{url('sign-up')}}">Sign Up</a>
+                                </div>
                                 </ul>
                             </div>
                         </nav>
