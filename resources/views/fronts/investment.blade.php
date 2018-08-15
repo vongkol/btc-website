@@ -12,6 +12,7 @@
 <hr>
 <div class="row">
     <div class="col-sm-9">
+        @if($plan!=null)
         <div class="form-group row">
             <label for="" class="col-sm-3">Plan Name</label>
             <div class="col-sm-9">
@@ -46,6 +47,10 @@
                 {!!$plan->description!!}
             </div>
         </div>
+        @else
+            <h5 class="text-danger">You don't have an investment yet!</h5>
+            <a href="{{url('/plan')}}" class="btn btn-warning btn-sm">New Investment</a>
+        @endif
     </div>
 </div>
 @endsection

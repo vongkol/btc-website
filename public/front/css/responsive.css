@@ -265,3 +265,7 @@
         margin-bottom: 0;
     }
 }
+.navbar-light .navbar-toggler-icon
+{
+    background: #ccc;
+}

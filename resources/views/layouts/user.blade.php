@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bill-Trade.</title>
+    <title>Bill-Trade</title>
 
     <link rel="icon" href="img/core-img/favicon.ico">
     <link href="{{asset('front/style.css')}}" rel="stylesheet">
@@ -36,7 +36,7 @@
                     <div class="menu_area">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <!-- Logo -->
-                            <a class="navbar-brand" href="{{url('/')}}">Bill-<span class="text-yellow">Trade</span>.</a>
+                            <a class="navbar-brand" href="{{url('/')}}">Bill-<span class="text-yellow">Trade</span></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                             <!-- Menu Area -->
                             <div class="collapse navbar-collapse" id="ca-navbar">
@@ -133,6 +133,10 @@
                         <i class="fa fa-globe text-warning"></i>
                         Network
                     </a>
+                </li>
+                <li id="menu_signout">
+                    <a href="{{url('/membership/sign-out')}}" class="text-white">
+                    <i class="fa fa-sign-out text-warning"></i> Sign Out</a>
                 </li>
             </ul>
         </nav>

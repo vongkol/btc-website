@@ -55,7 +55,7 @@
                     </div>
                     <div>
                         <select name="payment" id="payment" class="form-control col-sm-9" onchange="getMethod()">
-                            <option value="cash">By Cash</option>
+                            {{-- <option value="cash">By Cash</option> --}}
                             <option value="crypto">By Cryptocurrency</option>
                         </select>
                     </div>
@@ -66,7 +66,7 @@
                         <u><strong class="text-primary" id='method_title'>Pay By Cash</strong></u>
                         <br>
                         <div id="detail">
-                            {{$method->bank}}
+                            {{$method->crypto}}
                         </div>
                         <p>&nbsp;</p>
                     </div>
