@@ -12,7 +12,7 @@
         </div>
         <div class="row text-center">
             @foreach($plans as $plan)
-                <div class="col-md-3 col-lg-3">
+                <div class="col-md-3 col-lg-3 mobile-plan">
                     <div class="single-price-plan h-100 text-center">
                         <div class="package-plan">
                             <h5>{{$plan->name}}</h5>

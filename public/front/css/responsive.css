@@ -1,3 +1,6 @@
+.map {
+    height: 600px;
+}
 @media (min-width: 992px) and (max-width: 1199px) {
     .menu_area .navbar-brand {
         font-size: 42px;
@@ -133,6 +136,12 @@
     .header_area.sticky .menu_area #nav .nav-link {
         padding: 5px 15px;
     }
+    .map {
+        height: 250px;
+    }
+    .mobile-plan {
+        margin-bottom: 35px;
+    }
     #ca-navbar {
         padding: 20px;
         border-radius: 3px;
@@ -254,6 +263,9 @@
     }
     .get-start-area .email {
         max-width: 370px;
+    }
+    .mobile-plan {
+        margin-bottom: 20px;
     }
 }
 

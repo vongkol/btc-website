@@ -46,34 +46,42 @@
                                             <a class="nav-link" href="{{$m->url}}">{{$m->name}}</a>
                                         </li>
                                     @endforeach
-                                    <div class="sing-up-button d-lg-none">
+                                </ul>
+                                @if(Session::has('membership'))
+                                <div class="btn-group d-lg-none">
+                                    <button type="button" class="btn btn-warning btn-member-left text-white btn-member dropdown-toggle" data-toggle="dropdown">
+                                    {{session('membership')->first_name}} {{session('membership')->last_name}}
+                                    </button>
+                                    <div class="dropdown-menu ">
+                                        <a class="dropdown-item text-warning" href="{{url('/dashboard')}}">Dashboard</a>
+                                        <a class="dropdown-item text-danger" href="{{url('membership/sign-out')}}">Sign Out</a>
+                                    </div>
+                                </div>
+                                @else
+                                <div class="sing-up-button  d-lg-none">
                                         <a href="{{url('sign-in')}}">Sign In</a>
                                     </div>
-                                    <div class="sing-up-button  d-lg-none">
-                                    <a href="{{url('sign-up')}}">Sign Up</a>
-                                </div>
-                                </ul>
+                                        <div class="sing-up-button  d-lg-none">
+                                        <a href="{{url('sign-up')}}">Sign Up</a>
+                                    </div>
+                                @endif
                             </div>
                         </nav>
                     </div>
                 </div>
+                
                 <!-- Signup btn -->
                 @if(Session::has('membership'))
                 <div class="col-sm-3">
                     <div class="row">
                         <div class="sing-up-button d-none d-lg-block">
                             <div class="btn-group">
-                              
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-warning btn-member-left text-white btn-member dropdown-toggle" data-toggle="dropdown">
                                     {{session('membership')->first_name}} {{session('membership')->last_name}}
                                     </button>
                                     <div class="dropdown-menu ">
                                         <a class="dropdown-item text-warning" href="{{url('/dashboard')}}">Dashboard</a>
-                                        {{-- <a class="dropdown-item text-warning" href="{{url('/profile')}}"> Profile</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/order')}}"> Orders </a>
-                                        <a class="dropdown-item text-warning" href="{{url('/payment')}}"> Payment Request</a>
-                                        <a class="dropdown-item text-warning" href="{{url('/downline')}}"> Downlines</a> --}}
                                         <a class="dropdown-item text-danger" href="{{url('membership/sign-out')}}">Sign Out</a>
                                     </div>
                                 </div>

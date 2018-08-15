@@ -85,7 +85,7 @@
                 <div class="col-12">
                     <h2 class="text-center text-video ">Spectre.ai Trading Platform</h2>
                     <div class="video-area">
-                        <iframe width="100%" height="600" src="{{$video->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="100%" class="map" src="{{$video->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
             </div>
             <div class="row text-center">
                 @foreach($plans as $plan)
-                    <div class="col-md-3 col-lg-3">
+                    <div class="col-md-3 col-lg-3 mobile-plan">
                         <div class="single-price-plan h-100 text-center">
                             <div class="package-plan">
                                 <h5>{{$plan->name}}</h5>

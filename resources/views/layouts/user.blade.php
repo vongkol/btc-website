@@ -50,6 +50,17 @@
                                         </li>
                                     @endforeach
                                 </ul>
+                                <div class="btn-group d-lg-none">
+                                    <button type="button" class="btn btn-warning btn-member-left text-white btn-member dropdown-toggle" data-toggle="dropdown">
+                                    {{session('membership')->first_name}} {{session('membership')->last_name}}
+                                    </button>
+                                
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item text-warning" href="{{url('/dashboard')}}">Dashboard</a>
+                                        <a class="dropdown-item text-danger" href="{{url('membership/sign-out')}}">Sign Out</a>
+                                    </div>
+                                
+                                </div>
                             </div>
                         </nav>
                     </div>
@@ -60,7 +71,6 @@
                     <div class="row">
                         <div class="sing-up-button d-none d-lg-block">
                             <div class="btn-group">
-                              
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-warning btn-member-left text-white btn-member dropdown-toggle" data-toggle="dropdown">
                                     {{session('membership')->first_name}} {{session('membership')->last_name}}
