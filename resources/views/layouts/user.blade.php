@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bill-Trade</title>
 
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="{{asset('favicon.ico')}}">
     <link href="{{asset('front/style.css')}}" rel="stylesheet">
     <link href="{{asset('front/css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('front/css/page.css')}}" rel="stylesheet">
@@ -33,7 +33,10 @@
                     <div class="menu_area">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <!-- Logo -->
-                            <a class="navbar-brand" href="{{url('/')}}">Bill-<span class="text-yellow">Trade</span></a>
+                            <a class="navbar-brand" href="{{url('/')}}">
+                                <img src="{{asset('logo.png')}}" alt="" width="75">
+                                <span class="text-yellow">Trade</span>
+                            </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                             <!-- Menu Area -->
                             <div class="collapse navbar-collapse" id="ca-navbar">
@@ -155,7 +158,8 @@
     <footer class="footer-social-icon text-center section_padding_70">
         <!-- footer logo -->
         <div class="footer-text">
-            <h2>Bill-<span class="text-yellow">Trade</span></h2>
+            <img src="{{asset('logo.png')}}" alt="" width="75">
+            <span class="text-yellow">Trade</span>
         </div>
         <!-- social icon-->
         <?php $socials = DB::table('socials')->orderBy('order_number', 'asc')->where('active',1)->get();?>

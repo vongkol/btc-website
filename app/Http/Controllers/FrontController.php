@@ -21,10 +21,19 @@ class FrontController extends Controller
             ->where('active', 1)
             ->orderBy('id', 'desc')
             ->first();
-        
+        $data['news'] = DB::table('news')->where('active', 1)->orderBy('id', 'desc')->limit(8)->get();
         return view('fronts.index', $data);
    }
-
+   public function news($id)
+   {
+       $data['news'] = DB::table('news')->where('id', $id)->first();
+       return view('fronts.news', $data);
+   }
+   public function all_news()
+   {
+       $data['news'] = DB::table('news')->where('active',1)->orderBy('id','desc')->paginate(20);
+       return view('fronts.news-all', $data);
+   }
    public function dashboard() {
         $member = session('membership');
         if($member==null)

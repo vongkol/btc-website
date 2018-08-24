@@ -52,7 +52,7 @@ class Right
             $mail->CharSet = "utf-8"; // set charset to utf8
             $mail->SMTPAuth = true;  // use smpt auth
             $mail->SMTPSecure = "ssl"; // or ssl
-            $mail->Host = "gator4170.hostgator.com";
+            $mail->Host = "sg06.tmd.cloud";
             $mail->Port = 465; 
             $mail->Username = "sales@bill-trade.com";
             $mail->Password = "Khmer@123";
@@ -76,7 +76,7 @@ class Right
             $mail->CharSet = "utf-8"; 
             $mail->SMTPAuth = true; 
             $mail->SMTPSecure = "ssl";
-            $mail->Host = "gator4170.hostgator.com";
+            $mail->Host = "sg06.tmd.cloud";
             $mail->Port = 465; 
             $mail->Username = "sales@bill-trade.com";
             $mail->Password = "Khmer@123";
@@ -101,7 +101,7 @@ class Right
             $mail->CharSet = "utf-8"; // set charset to utf8
             $mail->SMTPAuth = true;  // use smpt auth
             $mail->SMTPSecure = "ssl"; // or ssl
-            $mail->Host = "gator4170.hostgator.com";
+            $mail->Host = "sg06.tmd.cloud";
             $mail->Port = 465; // most likely something different for you. This is the mailtrap.io port i use for testing.
             $mail->Username = "sales@bill-trade.com";
             $mail->Password = "Khmer@123";

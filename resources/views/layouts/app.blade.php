@@ -83,6 +83,9 @@
                         <a class="nav-link" href="{{url('/admin/page')}}"><i class="fa fa-columns text-warning"></i> Pages</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/news')}}"><i class="fa fa-bars text-primary"></i> News</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin/order')}}"><i class="fa fa-star text-success"></i> Orders</a>
                     </li>
                     <li class="nav-item">

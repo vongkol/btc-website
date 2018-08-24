@@ -83,7 +83,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center text-video ">Spectre.ai Trading Platform</h2>
+                    <h2 class="text-center text-video "></h2>
                     <div class="video-area">
                         <iframe width="100%" class="map" src="{{$video->url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
@@ -125,7 +125,44 @@
             </div>
         </div>
     </section>
-
+    <section class="clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-heading text-center">
+                        <h2>Latest News</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($news as $n)
+                    <div class="col-sm-3">
+                        <img src="{{asset('uploads/news/'.$n->featured_image)}}" alt="" class="img-thumbnail">
+                        <p></p>
+                        <h5>
+                            <a href="{{url('/news/'.$n->id)}}">{{$n->title}}</a>
+                        </h5>
+                        <div class="text-justify">
+                            {{$n->short_description}}
+                        </div>
+                        <p></p>
+                        <p>
+                            <a href="{{url('/news/'.$n->id)}}">Read More >></a>
+                        </p>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <a href="{{url('/news-all')}}" class="btn btn-warning">Read All News</a>
+                    </div>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+    </section>
   <section class="our-monthly-membership section_padding_50">
       <div class="container">
           <div class="row align-items-center">

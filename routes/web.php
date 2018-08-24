@@ -35,6 +35,8 @@ Route::get('/payment', "FrontController@payment");
 Route::get('/request', "FrontController@request");
 Route::post('/request/submit', "FrontController@request_payment");
 Route::get('/confirm/{id}', "SignupController@confirm");
+Route::get('/news/{id}', "FrontController@news");
+Route::get('/news-all', "FrontController@all_news");
 Auth::routes();
 
 /////////////////////////////////////////////////////////////////////
@@ -151,3 +153,10 @@ Route::get('/admin/payment/approve/{id}', "PaymentController@approve");
 Route::get('/admin/payment-method', "PaymentMethodController@index");
 Route::get('/admin/payment-method/edit/{id}', "PaymentMethodController@edit");
 Route::post('/admin/payment-method/update', "PaymentMethodController@update");
+// news
+Route::get('/admin/news', "NewsController@index");
+Route::get('/admin/news/create', "NewsController@create");
+Route::get('/admin/news/edit/{id}', "NewsController@edit");
+Route::get('/admin/news/delete/{id}', "NewsController@delete");
+Route::post('/admin/news/save', "NewsController@save");
+Route::post('/admin/news/update', "NewsController@update");

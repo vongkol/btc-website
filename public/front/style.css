@@ -217,7 +217,7 @@ p {
 }
 
 .menu_area .navbar-brand {
-    font-size: 72px;
+    font-size: 50px;
     font-weight: 700;
     color: #fff;
     margin: 0;
@@ -295,7 +295,7 @@ p {
 }
 
 .header_area.sticky .menu_area .navbar-brand {
-    font-size: 50px;
+    font-size: 45px;
 }
 
 .header_area.sticky .menu_area #nav .nav-link {
