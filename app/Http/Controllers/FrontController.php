@@ -21,7 +21,7 @@ class FrontController extends Controller
             ->where('active', 1)
             ->orderBy('id', 'desc')
             ->first();
-        $data['news'] = DB::table('news')->where('active', 1)->orderBy('id', 'desc')->limit(8)->get();
+        $data['news'] = DB::table('news')->where('active', 1)->orderBy('id', 'desc')->limit(4)->get();
         return view('fronts.index', $data);
    }
    public function news($id)
@@ -58,6 +58,7 @@ class FrontController extends Controller
         $data['pays'] = DB::table('payments')
             ->where(DB::raw('month(request_date)'), (int)$m)
             ->where(DB::raw('year(request_date)'), (int)$y)
+            ->where('member_id', $member->id)
             ->get();
        return view('fronts.dashboard', $data);
    }
@@ -323,7 +324,8 @@ EOT;
             $data = array(
                 'request_date' => date('Y-m-d'),
                 'score' => $score,
-                'member_id' => $member->id
+                'member_id' => $member->id,
+                'payment_address' => $r->address
             );
             DB::table('payments')->insert($data);
             // send email to alert
@@ -351,11 +353,9 @@ EOT;
                 Email: {$member->email}
             </p>
             <p>
-                Requested Score: {$score}
+                Requested Amount: $ {$score}
             </p>
-            <p>
-                Requested Amount: $ {$amount}
-            </p>
+           
 EOT;
             $mails = DB::table('admin_emails')->get();
             foreach($mails as $m)

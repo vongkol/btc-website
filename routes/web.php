@@ -160,3 +160,6 @@ Route::get('/admin/news/edit/{id}', "NewsController@edit");
 Route::get('/admin/news/delete/{id}', "NewsController@delete");
 Route::post('/admin/news/save', "NewsController@save");
 Route::post('/admin/news/update', "NewsController@update");
+
+// document
+Route::get('/document/delete', "MembershipController@delete_document");

@@ -16,8 +16,9 @@
                                 <th>Request Date</th>
                                 <th>Customer Name</th>
                                 <th>Customer Email</th>
-                                <th>Score</th>
+                                <th>Request Amount</th>
                                 <th>Status</th>
+                                <th>Address</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,6 +39,7 @@
                                 <td>{{$p->email}}</td>
                                 <td>$ {{$p->score}}</td>
                                 <td>{{$p->status==1?'Approved':'Pending'}}</td>
+                                <td>{{$p->payment_address}}</td>
                                 <td>
                                     <a href="{{url('/admin/payment/delete/'.$p->id)}}" class="text-danger" onclick="return confirm('You want to delete?')">Delete</a>
                                 </td>

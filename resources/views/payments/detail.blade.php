@@ -32,8 +32,12 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>Requested Score</td>
+                                    <td>Request Amount</td>
                                     <td>: {{$payment->score}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Payment Address</td>
+                                    <td>: {{$payment->payment_address}}</td>
                                 </tr>
                                 
                             </table>

@@ -55,17 +55,7 @@ class FrontPageController extends Controller
             ->first();
         return view('fronts.pages.index', $data);
     }
-    public function staff() 
-    {
-        $data['title'] = "KYA Staff";
-        $data['staffs'] = DB::table('staffs')
-            ->where('section', 'staff')
-            ->where('active', 1)
-            ->orderBy('order_number')
-            ->get();
-        return view('fronts.pages.staff', $data);
-    }
-    
+
     public function membership() 
     {
         return view('fronts.pages.membership');

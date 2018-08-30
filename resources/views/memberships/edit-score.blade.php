@@ -4,8 +4,8 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header text-bold">
-                    <i class="fa fa-align-justify"></i> Edit score&nbsp;&nbsp;
-                    <a href="{{url('/admin/membership/')}}" class="btn btn-link btn-sm">
+                    <i class="fa fa-align-justify"></i> Edit Earning&nbsp;&nbsp;
+                    <a href="{{url('/admin/membership/detail/'.$member->id)}}" class="btn btn-link btn-sm">
                         Back
                     </a>
                 </div>
@@ -26,9 +26,10 @@
                     </div>
                     <div>
                         Email: {{$member->email}}
+                        <p>&nbsp;</p>
                     </div>
                     <div>
-                        <strong>Score</strong>
+                        <strong>Earning: $ </strong>
                         <hr>
                         <form action="{{url('admin/membership/score/update')}}" method="post">
                             {{csrf_field()}}

@@ -40,6 +40,9 @@ class MembershipController extends Controller
             ->where('member_id', $id)
             ->orderBy('id', 'desc')
             ->get();
+        $data['kycs'] = DB::table('documents')
+            ->where('member_id', $id)
+            ->get();
         return view('memberships.detail', $data);
     }
     // load create form
@@ -133,6 +136,13 @@ class MembershipController extends Controller
         DB::table('memberships')->where('id', $r->id)->update($data);
         $r->session()->flash('sms', "Score has been updated!");
         return redirect("/admin/membership/edit-score/".$r->id);
+    }
+    public function delete_document()
+    {
+        $id = $_GET['id'];
+        $dc = $_GET['dc'];
+        DB::table('documents')->where('id', $dc)->delete();
+        return redirect('/admin/membership/detail/'.$id);
     }
 }
 

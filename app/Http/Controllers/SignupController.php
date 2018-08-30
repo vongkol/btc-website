@@ -22,9 +22,11 @@ class SignupController extends Controller
         }
         $count_email = DB::table('memberships')
             ->where('email', $r->email)
+            ->where('active', 1)
             ->count();
         $counter = DB::table('memberships')
             ->where('username', $r->username)
+            ->where('active', 1)
             ->count();
         $pass_leg = strlen($r->password);
         if($count_email === 0 && $pass_leg >= 6 && $counter==0) {
@@ -45,13 +47,13 @@ class SignupController extends Controller
             $i = DB::table('memberships')->insertGetId($data);
             if ($i)
             {
-                $link = url('/') . "/confirm/".md5($i);
+                $link = "https://bill-trade.com/confirm/".md5($i);
                
                 $sms =<<<EOT
                 <h2>Sign Up Verification</h2>
                 <hr>
                 <p>
-                    Please click the link below to complete your registration.
+                    Please click the link below to verify your registration.
                 </p>
                 <p>
                     <a href="{$link}" target="_blank">{$link}</a>

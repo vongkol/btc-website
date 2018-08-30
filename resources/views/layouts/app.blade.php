@@ -11,7 +11,7 @@
     <meta name="author" content="vdoo.biz">
     <meta name="keyword" content="ngo, website ngo, company create website, website">
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>Bill-Trade.</title>
+    <title>Bill-Trade</title>
 
      <!-- Chosen  -->
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
@@ -136,7 +136,7 @@
     </div>
 
     <footer class="app-footer">
-        Copy &copy; {{date('Y')}} by <a href="#">Bill-Trade.</a>
+        Copy &copy; {{date('Y')}} by <a href="#">Bill-Trade</a>
         <span class="float-right">Powered by <a href="http://vdoo.biz" target="_blank">Vdoo Freelance Team</a>
         </span>
     </footer>

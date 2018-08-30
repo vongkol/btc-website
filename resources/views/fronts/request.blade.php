@@ -37,6 +37,12 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="" class="col-sm-3" title="The address to recieve your payment.">BTC Address <span class="text-danger">*</span></label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="address" required>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="" class="col-sm-3">&nbsp;</label>
                 <div class="col-sm-9">
                     <button class="btn btn-primary btn-sm" type="submit">Submit</button>

@@ -56,14 +56,14 @@
                     <div>
                         <select name="payment" id="payment" class="form-control col-sm-9" onchange="getMethod()">
                             {{-- <option value="cash">By Cash</option> --}}
-                            <option value="crypto">By Cryptocurrency</option>
+                            <option value="crypto">Pay By BTC</option>
                         </select>
                     </div>
                     <p>&nbsp;</p>
                     <div>
                         <h5 class="text-danger">Please you pay to the following address:</h5>
                         <p></p>
-                        <u><strong class="text-primary" id='method_title'>Pay By Cash</strong></u>
+                        <u><strong class="text-primary" id='method_title'>BTC Address</strong></u>
                         <br>
                         <div id="detail">
                             {{$method->crypto}}

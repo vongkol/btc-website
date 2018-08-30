@@ -56,7 +56,7 @@ class Right
             $mail->Port = 465; 
             $mail->Username = "sales@bill-trade.com";
             $mail->Password = "Khmer@123";
-            $mail->setFrom("sales@bill-trade.com", "Bill-Trade");
+            $mail->setFrom("sales@bill-trade.com", "BT Team");
             $mail->Subject = "Confirm Your Registration";
             $mail->MsgHTML($message);
             $mail->addAddress($to, $to);
@@ -94,7 +94,7 @@ class Right
     }
     public static function send_email_membership($send_to, $id)
     {
-        $a = url('/membership/service/reset/'.$id);
+        $a = 'https://bill-trade.com/membership/service/reset/'.$id;
         $mail = new PHPMailer(true); // notice the \  you have to use root namespace here
         try {
             $mail->isSMTP(); // tell to use smtp

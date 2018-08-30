@@ -79,13 +79,13 @@
                     <div class="form-group row">
                         <label for="" class="control-label col-sm-3">City <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" name="city" class="form-control" required>
+                            <input type="text" name="city" class="form-control" required value="{{old('city')}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="control-label col-sm-3">Zipcode <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" name="zipcode" class="form-control" required>
+                            <input type="text" name="zipcode" class="form-control" required value="{{old('postal_code')}}">
                         </div>
                     </div>
                     <div class="form-group row">

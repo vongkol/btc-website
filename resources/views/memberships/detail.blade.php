@@ -39,15 +39,78 @@
                                     : {{$member->email}}
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3">Country</label>
+                                <div class="col-sm-9">
+                                    : {{$member->country}}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3">City</label>
+                                <div class="col-sm-9">
+                                    : {{$member->city}}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3">Zipcode</label>
+                                <div class="col-sm-9">
+                                    : {{$member->postal_code}}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3">Username</label>
+                                <div class="col-sm-9">
+                                    : {{$member->username}}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3">Earning</label>
+                                <div class="col-sm-9">
+                                    : $ {{$member->score}}
+                                    <a href="{{url('/admin/membership/edit-score/'.$member->id)}}" class="btn btn-link">Edit Earning</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-sm-6">
-                            <strong>Score: {{$member->score}}</strong>
-                            <hr>
-                            <a href="{{url('/admin/membership/edit-score/'.$member->id)}}" class="btn btn-warning">Edit Score</a>
+                            <strong>Apply KYC</strong>
+                            <p></p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>&numero;</th>
+                                        <th>File Name</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <body>
+                                  @php($i=1)
+                                  @foreach($kycs as $k)
+                                    <tr>
+                                        <td>{{$i++}}</td>
+                                        <td>
+                                            <a href="{{asset('uploads/kyc/'.$k->file_name)}}" target="_blank">{{$k->file_name}}</a>
+                                        </td>
+                                        <td>{{$k->approved==1?'Approved':'Pending'}}</td>
+                                        <td>
+                                            <a href="{{url('/document/delete?id='.$member->id.'&dc='.$k->id)}}" class="btn btn-link text-danger" onclick="return confirm('You want to delete?')">Delete</a>
+                                            @if($k->approved==0)
+                                            <a href="#" class="btn btn-link">Approve</a>
+                                            @else
+                                                <a href="#" class="btn btn-link text-warning">De-approve</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                  @endforeach
+                                </body>
+                            </table>
+                            @if(count($kycs)<=0)
+                                <p class="text-danger">No KYC applied!</p>
+                            @endif
                         </div>
                     </div>
                     </form>
-                    <p></p>
+                    <p>&nbsp;</p>
                     <strong class="text-danger">Order History</strong>
                     <table class="table">
                         <thead>
@@ -75,27 +138,37 @@
                             @endforeach
                         </body>
                     </table>
-                    <p></p>
-                    <hr>
+                    <p>&nbsp;</p>
                     <strong class="text-success">Payment Request History</strong>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Request Date</th>
-                                <th>Score</th>
                                 <th>Amount</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @foreach($payments as $p)
+                            <tr>
+                                <td>{{$p->id}}</td>
+                                <td>{{$p->request_date}}</td>
+                                <td>$ {{$p->score}}</td>
+                                <td>
+                                    {{$p->status==1?'Approved':'Pending'}}
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                     <p class="text-primary">
                         @if(count($payments)<=0)
                             You don't have any payment request yer!
                         @endif
                     </p>
-                    <p></p>
-                    <strong class="text-success">Down Line</strong>
+                    <p>&nbsp;</p>
+                    <strong class="text-info">Down Line</strong>
                     <table class="table">
                         <thead>
                             <tr>
