@@ -60,6 +60,18 @@ class FrontController extends Controller
             ->where(DB::raw('year(request_date)'), (int)$y)
             ->where('member_id', $member->id)
             ->get();
+
+        // get announcement
+        $arr = [];
+        $hides = DB::table('anc_hides')->where('member_id', $member->id)->get();
+        foreach($hides as $h)
+        {
+            array_push($arr,$h->anc_id);
+        }
+        $data['ancs'] = DB::table('announcements')
+            ->whereNotIn('id', $arr)
+            ->orderBy('id', 'desc')
+            ->get();
        return view('fronts.dashboard', $data);
    }
    // view post detail
@@ -430,5 +442,30 @@ EOT;
             ->first();
         return view('fronts.transaction', $data);
    }
-
+   public function anc()
+   {
+       $data['ancs'] = DB::table('announcements')->orderBy('id', 'desc')->paginate(18);
+       return view('fronts.announcement', $data);
+   }
+   public function hide_anc($id)
+   {
+        $member = session('membership');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data = array(
+            'anc_id' => $id,
+            'member_id' => $member->id
+        );
+        DB::table('anc_hides')->insert($data);
+        return redirect('/dashboard');
+   }
+   public function view_anc($id)
+   {
+       $data['anc'] = DB::table('announcements')
+            ->where('id', $id)
+            ->first();
+        return view('fronts.anc', $data);
+   }
 }

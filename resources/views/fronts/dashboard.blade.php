@@ -1,10 +1,34 @@
 @extends('layouts.user')
 @section('content')
+<div class="row">
+    <div class="col-sm-12">
+        @foreach($ancs as $anc)
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div>
+                <h5>
+                    <a href="{{url('/announcement/view/'.$anc->id)}}">{{$anc->title}}</a>
+                </h5>
+                <p class="text-danger">
+                    {{$anc->short_description}}
+                </p>
+                <p>
+                    <a href="{{url('/announcement/view/'.$anc->id)}}" class="btn btn-primary btn-sm">Read More</a>
+                    <a href="{{url('/announcement/hide/'.$anc->id)}}" class="btn btn-success btn-sm">Hide</a>
+                </p>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endforeach
+    </div>
+</div>
     <button type="button" id="sidebarCollapse" class="btn btn-dark">
         <i class="fa fa-bars mr-8"></i>
         <span>Dashbord</span>
     </button>
     <p></p>
+   
     <div class="row">
         <div class="col-md-4">
             <div class="card text-white bg-dark mb-3">

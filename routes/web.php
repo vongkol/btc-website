@@ -37,6 +37,15 @@ Route::post('/request/submit', "FrontController@request_payment");
 Route::get('/confirm/{id}', "SignupController@confirm");
 Route::get('/news/{id}', "FrontController@news");
 Route::get('/news-all', "FrontController@all_news");
+Route::get('/kyc', "KYCController@index");
+Route::get('/kyc/create', "KYCController@create");
+Route::get('/kyc/delete/{id}', "KYCController@delete");
+Route::post('/kyc/save', "KYCController@save");
+
+// announcement
+Route::get('/announcement', "FrontController@anc");
+Route::get('/announcement/view/{id}', "FrontController@view_anc");
+Route::get('/announcement/hide/{id}', "FrontController@hide_anc");
 Auth::routes();
 
 /////////////////////////////////////////////////////////////////////
@@ -160,6 +169,16 @@ Route::get('/admin/news/edit/{id}', "NewsController@edit");
 Route::get('/admin/news/delete/{id}', "NewsController@delete");
 Route::post('/admin/news/save', "NewsController@save");
 Route::post('/admin/news/update', "NewsController@update");
+// announcements
+Route::get('/admin/announcement', "AnnouncementController@index");
+Route::get('/admin/announcement/create', "AnnouncementController@create");
+Route::get('/admin/announcement/edit/{id}', "AnnouncementController@edit");
+Route::get('/admin/announcement/delete/{id}', "AnnouncementController@delete");
+Route::get('/admin/announcement/view/{id}', "AnnouncementController@view");
+Route::post('/admin/announcement/save', "AnnouncementController@save");
+Route::post('/admin/announcement/update', "AnnouncementController@update");
 
 // document
 Route::get('/document/delete', "MembershipController@delete_document");
+Route::get('/document/approve', "MembershipController@approve_document");
+Route::get('/document/deapprove', "MembershipController@de_approve");

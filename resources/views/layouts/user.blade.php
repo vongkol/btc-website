@@ -117,6 +117,18 @@
                         Profile
                     </a>
                 </li>
+                <li id='menu_kyc'>
+                    <a href="{{url('/kyc')}}" class="text-white"> 
+                        <i class="fa fa-file text-warning"></i>
+                        My KYC
+                    </a>
+                </li>
+                <li id="menu_announcement">
+                    <a href="{{url('/announcement')}}" class="text-white">
+                        <i class="fa fa-bell text-warning"></i> 
+                        Announcement
+                    </a>
+                </li>
                 <li id='menu_investment'>
                     <a href="{{url('/investment')}}" class="text-white"> 
                         <i class="fa fa-dollar text-warning"></i>

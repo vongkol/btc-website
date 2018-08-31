@@ -78,7 +78,7 @@
                                 <thead>
                                     <tr>
                                         <th>&numero;</th>
-                                        <th>File Name</th>
+                                        <th>Title</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -89,15 +89,15 @@
                                     <tr>
                                         <td>{{$i++}}</td>
                                         <td>
-                                            <a href="{{asset('uploads/kyc/'.$k->file_name)}}" target="_blank">{{$k->file_name}}</a>
+                                            <a href="{{asset($k->file_name)}}" target="_blank">{{$k->title}}</a>
                                         </td>
                                         <td>{{$k->approved==1?'Approved':'Pending'}}</td>
                                         <td>
                                             <a href="{{url('/document/delete?id='.$member->id.'&dc='.$k->id)}}" class="btn btn-link text-danger" onclick="return confirm('You want to delete?')">Delete</a>
                                             @if($k->approved==0)
-                                            <a href="#" class="btn btn-link">Approve</a>
+                                            <a href="{{url('/document/approve?id='.$member->id.'&dc='.$k->id)}}" class="btn btn-link">Approve</a>
                                             @else
-                                                <a href="#" class="btn btn-link text-warning">De-approve</a>
+                                                <a href="{{url('/document/deapprove?id='.$member->id.'&dc='.$k->id)}}" class="btn btn-link text-warning">De-approve</a>
                                             @endif
                                         </td>
                                     </tr>

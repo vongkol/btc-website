@@ -141,7 +141,23 @@ class MembershipController extends Controller
     {
         $id = $_GET['id'];
         $dc = $_GET['dc'];
+        $file = DB::table('documents')->where('id', $dc)->first();
+        unlink($file->file_name);
         DB::table('documents')->where('id', $dc)->delete();
+        return redirect('/admin/membership/detail/'.$id);
+    }
+    public function approve_document()
+    {
+        $id = $_GET['id'];
+        $dc = $_GET['dc'];
+        DB::table('documents')->where('id', $dc)->update(['approved'=>1]);
+        return redirect('/admin/membership/detail/'.$id);
+    }
+    public function de_approve()
+    {
+        $id = $_GET['id'];
+        $dc = $_GET['dc'];
+        DB::table('documents')->where('id', $dc)->update(['approved'=>0]);
         return redirect('/admin/membership/detail/'.$id);
     }
 }
