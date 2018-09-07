@@ -177,6 +177,13 @@ Route::get('/admin/announcement/delete/{id}', "AnnouncementController@delete");
 Route::get('/admin/announcement/view/{id}', "AnnouncementController@view");
 Route::post('/admin/announcement/save', "AnnouncementController@save");
 Route::post('/admin/announcement/update', "AnnouncementController@update");
+// Mail route
+Route::get('admin/mail', 'MailController@index');
+Route::get('admin/mail/create', 'MailController@create');
+Route::get('admin/mail/edit/{id}', 'MailController@edit');
+Route::get('admin/mail/delete/{id}', 'MailController@delete');
+Route::get('admin/mail/view/{id}', 'MailController@view');
+Route::post('admin/mail/save', 'MailController@save');
 
 // document
 Route::get('/document/delete', "MembershipController@delete_document");

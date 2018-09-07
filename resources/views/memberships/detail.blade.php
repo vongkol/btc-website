@@ -77,34 +77,51 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>&numero;</th>
-                                        <th>Title</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <body>
-                                  @php($i=1)
-                                  @foreach($kycs as $k)
+                                  
+                                @if($kyc!=null)
                                     <tr>
-                                        <td>{{$i++}}</td>
+                                        <td>{{$kyc->first_name}}</td>
+                                        <td>{{$kyc->last_name}}</td>
+                                        <td>{{$kyc->phone}}</td>
+                                        <td>{{$kyc->current_address}}</td>
                                         <td>
-                                            <a href="{{asset($k->file_name)}}" target="_blank">{{$k->title}}</a>
+                                            {{$kyc->approved==1?'Approved':'Pending'}}
                                         </td>
-                                        <td>{{$k->approved==1?'Approved':'Pending'}}</td>
                                         <td>
-                                            <a href="{{url('/document/delete?id='.$member->id.'&dc='.$k->id)}}" class="btn btn-link text-danger" onclick="return confirm('You want to delete?')">Delete</a>
-                                            @if($k->approved==0)
-                                            <a href="{{url('/document/approve?id='.$member->id.'&dc='.$k->id)}}" class="btn btn-link">Approve</a>
+                                            <a href="{{url('/document/delete?id='.$member->id.'&dc='.$kyc->id)}}" class="btn btn-link text-danger" onclick="return confirm('You want to delete?')">Delete</a>
+                                            @if($kyc->approved==0)
+                                            <a href="{{url('/document/approve?id='.$member->id.'&dc='.$kyc->id)}}" class="btn btn-link">Approve</a>
                                             @else
-                                                <a href="{{url('/document/deapprove?id='.$member->id.'&dc='.$k->id)}}" class="btn btn-link text-warning">De-approve</a>
+                                                <a href="{{url('/document/deapprove?id='.$member->id.'&dc='.$kyc->id)}}" class="btn btn-link text-warning">De-approve</a>
                                             @endif
                                         </td>
                                     </tr>
-                                  @endforeach
+                                    <tr>
+                                        <td colspan="6">
+                                            <p>
+                                                <strong>Attached Document 1 </strong>
+                                                <a href="{{asset($kyc->file_name)}}">{{$kyc->file_name}}</a>
+                                            </p>
+                                            <p>
+                                                <strong>Attached Document 2 </strong>
+                                                <a href="{{asset($kyc->file_name1)}}">{{$kyc->file_name}}</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                @endif
+                                
                                 </body>
                             </table>
-                            @if(count($kycs)<=0)
+                            @if($kyc==null)
                                 <p class="text-danger">No KYC applied!</p>
                             @endif
                         </div>
