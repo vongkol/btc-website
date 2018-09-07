@@ -86,6 +86,9 @@
                         <a class="nav-link" href="{{url('/admin/news')}}"><i class="fa fa-bars text-primary"></i> News</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/mail')}}"><i class="fa fa-envelope text-success"></i> Send Email</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{url('/admin/announcement')}}" class="nav-link"><i class="fa fa-bell text-warning"></i> Announcement</a>
                     </li>
                     <li class="nav-item">

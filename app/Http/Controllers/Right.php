@@ -43,7 +43,29 @@ class Right
         }
         return $arr;
     }
-
+    public static function send_sms($to, $subject, $message)
+    {
+        $mail = new PHPMailer(true); // notice the \  you have to use root namespace here
+        try {
+            $mail->isSMTP(); // tell to use smtp
+            $mail->CharSet = "utf-8"; // set charset to utf8
+            $mail->SMTPAuth = true;  // use smpt auth
+            $mail->SMTPSecure = "ssl"; // or ssl
+            $mail->Host = "sg06.tmd.cloud";
+            $mail->Port = 465; 
+            $mail->Username = "sales@bill-trade.com";
+            $mail->Password = "Khmer@123";
+            $mail->setFrom("sales@bill-trade.com", "BT Team");
+            $mail->Subject = $subject;
+            $mail->MsgHTML($message);
+            $mail->addAddress($to, $to);
+            $mail->send();
+        } catch (phpmailerException $e) {
+//            dd($e);
+        } catch (Exception $e) {
+//            dd($e);
+        }
+    }
     public static function sms($to, $message)
     {
         $mail = new PHPMailer(true); // notice the \  you have to use root namespace here

@@ -1,3 +1,6 @@
 1 - Update package title bigger
 2 - send email to member from backend
 3 - add table mail
+4 - add firstname, lastname, address, phone to documents table
+5 - update kyc information in the admin
+6 - update kyc infront end

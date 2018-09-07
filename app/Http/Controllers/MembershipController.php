@@ -40,9 +40,9 @@ class MembershipController extends Controller
             ->where('member_id', $id)
             ->orderBy('id', 'desc')
             ->get();
-        $data['kycs'] = DB::table('documents')
+        $data['kyc'] = DB::table('documents')
             ->where('member_id', $id)
-            ->get();
+            ->first();
         return view('memberships.detail', $data);
     }
     // load create form
