@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 31, 2018 at 10:28 PM
--- Server version: 5.7.23-0ubuntu0.16.04.1
--- PHP Version: 7.1.20-1+ubuntu16.04.1+deb.sury.org+1
+-- Generation Time: Sep 07, 2018 at 05:23 PM
+-- Server version: 10.1.26-MariaDB-0+deb9u1
+-- PHP Version: 7.2.7-1+0~20180622080745.23+stretch~1.gbpfd8e2e
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -59,7 +59,8 @@ CREATE TABLE `anc_hides` (
 
 INSERT INTO `anc_hides` (`id`, `anc_id`, `member_id`, `create_at`) VALUES
 (1, 3, 1, '2018-08-30 05:52:51'),
-(2, 4, 1, '2018-08-30 05:52:53');
+(2, 4, 1, '2018-08-30 05:52:53'),
+(3, 5, 1, '2018-09-07 09:48:23');
 
 -- --------------------------------------------------------
 
@@ -382,12 +383,43 @@ INSERT INTO `categories` (`id`, `name`, `parent_id`, `active`, `create_at`, `ico
 --
 
 CREATE TABLE `documents` (
-  `id` bigint(20) NOT NULL,
-  `title` text,
-  `file_name` varchar(250) DEFAULT NULL,
-  `member_id` int(11) NOT NULL DEFAULT '0',
-  `approved` tinyint(4) NOT NULL DEFAULT '0'
+  `id` int(11) NOT NULL,
+  `file_name` varchar(200) DEFAULT NULL,
+  `member_id` int(11) NOT NULL,
+  `approved` tinyint(4) NOT NULL DEFAULT '0',
+  `file_name1` varchar(220) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `current_address` varchar(220) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `documents`
+--
+
+INSERT INTO `documents` (`id`, `file_name`, `member_id`, `approved`, `file_name1`, `first_name`, `last_name`, `current_address`, `phone`) VALUES
+(1, 'uploads/documents//oIkL7gTErJDTqmCLbBrO3PTz8TeQMxy8KwYdy1Dz.jpeg', 1, 0, 'uploads/documents//FWG5FK0iwB1conIv78dxNWPZ3m7nRNULoSGuty2d.jpeg', 'HENG', 'Vongkol', 'Phnom Penh, Cambodia1', '017 837 754');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mails`
+--
+
+CREATE TABLE `mails` (
+  `id` int(11) NOT NULL,
+  `subject` text NOT NULL,
+  `message` longtext NOT NULL,
+  `send_date` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mails`
+--
+
+INSERT INTO `mails` (`id`, `subject`, `message`, `send_date`) VALUES
+(3, 'Some message', '<p>Some description</p>', '2018-09-07');
 
 -- --------------------------------------------------------
 
@@ -445,7 +477,8 @@ CREATE TABLE `memberships` (
 --
 
 INSERT INTO `memberships` (`id`, `first_name`, `last_name`, `gender`, `email`, `country`, `city`, `postal_code`, `username`, `password`, `photo`, `refby`, `score`, `active`, `create_at`, `recovery_mode`, `verify`) VALUES
-(1, 'HENG', 'Vongkol', 'Male', 'hengvongkol@gmail.com', 'Cambodia', 'Phnom Penh', '855', 'vongkol', '$2y$10$J15F1HHIXfQWDohvM5AxKu5M5HZVUgPKkmvNkU7Rfx2smpHzbCrZ2', NULL, NULL, 1000, 1, '2018-07-27 05:35:12', 0, 1);
+(1, 'HENG', 'Vongkol', 'Male', 'hengvongkol@gmail.com', 'Cambodia', 'Phnom Penh', '855', 'vongkol', '$2y$10$Tx215qXvjkjuE9pjVbRv4uokJuuAbrrpvPUSrbtVzjXmnLrztqXdC', NULL, NULL, 400, 1, '2018-08-25 12:42:20', 0, 1),
+(2, 'Vongkol', 'HENG', 'Male', 'vongkolheng@gmail.com', 'Cambodia', 'PP', '855', 'heng', '123', '123', '0', 0, 1, '2018-09-07 08:56:47', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -500,7 +533,8 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `order_date`, `plan_id`, `member_id`, `status`, `create_at`, `payment_type`) VALUES
 (1, '2018-08-14', 3, 11, 1, '2018-08-14 10:58:38', 'crypto'),
-(2, '2018-08-19', 3, 1, 0, '2018-08-19 05:01:08', 'crypto');
+(3, '2018-08-21', 5, 2, 1, '2018-08-21 04:08:27', 'crypto'),
+(4, '2018-08-25', 2, 1, 1, '2018-08-25 12:56:21', 'crypto');
 
 -- --------------------------------------------------------
 
@@ -550,9 +584,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `request_date`, `score`, `amount`, `status`, `create_at`, `member_id`, `payment_address`) VALUES
-(3, '2018-07-18', 500, 5, 1, '2018-07-18 14:31:54', 1, NULL),
-(4, '2018-08-14', 3000, NULL, 1, '2018-08-14 12:51:58', 1, NULL),
-(5, '2018-08-14', 1000, NULL, 1, '2018-08-14 12:54:19', 1, NULL);
+(1, '2018-08-25', 100, NULL, 1, '2018-08-25 13:04:49', 1, 'o42349sdflj2340sdkfj=3442l14wsf425');
 
 -- --------------------------------------------------------
 
@@ -803,18 +835,8 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`id`, `name`, `photo`, `create_at`, `active`, `order`, `url`) VALUES
-(1, 'Wedoo', 'ddd-min.png', '2018-02-11 03:14:45', 0, 0, NULL),
-(2, 'Vdoo Solutions', 'hh.png', '2018-02-11 03:19:03', 0, 1, NULL),
-(3, 'test', 'fish.jpg', '2018-02-11 03:19:24', 0, 0, NULL),
-(4, 'Vdoo Solutions', 'dream_village_hd.jpg', '2018-02-11 03:36:38', 0, 0, NULL),
-(5, 'Vdoo Solutions', 'post-4.png', '2018-02-11 15:37:03', 0, 0, NULL),
-(6, 'EU Cycling tour', 'slide2.jpg', '2018-03-01 04:26:52', 0, 1, 'http://vdoo.biz/'),
 (7, 'BillTrade', 'slide1.jpg', '2018-03-01 04:27:04', 1, 2, '#'),
-(8, 'EU Cycling tour', 'slide9-min.png', '2018-03-01 04:47:39', 0, 3, NULL),
-(9, 'vichey', '4-min.png', '2018-03-13 16:46:01', 0, 0, '456789'),
-(10, 'Bill Trade', 'slide1.jpg', '2018-05-08 16:05:14', 1, 3, '#'),
-(11, 'EU Cycling tourEU Cycling tourEU Cycling tourEU Cycling tourEU Cycling tourEU Cycling tour', '1-min.png', '2018-05-09 18:27:13', 0, 0, NULL),
-(12, 'test', 'swDNLSxupk2p74uja.jpeg', '2018-05-19 12:20:59', 0, 1, 'https://www.facebook.com/');
+(10, 'Bill Trade', 'slide1.jpg', '2018-05-08 16:05:14', 1, 3, '#');
 
 -- --------------------------------------------------------
 
@@ -867,8 +889,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `photo`, `language`, `role_id`) VALUES
-(1, 'Heng Vongkol', 'admin@gmail.com', '$2y$10$YfZEjryxGfiH8aOrxX/0jOyHYry53o9uMbyrVos4I2gogKv2t1OHG', 'jB9UvEUb6AR0945PYUtCjiWM9m1nb4AVTqTvb2dN6GpdqSCn3wQUlIPjgVGn', '2017-05-27 22:35:52', '2017-05-27 22:35:52', '1 copy.jpg', 'en', 1),
-(5, 'Writer', 'ranypa852@gmail.com', '$2y$10$7STuALxOE2qiIMCdviLfr.MeB8CR27FS6neE7XZnIkVt8gua6efiO', '1KLKr8wSH4vVdu6XRBx8snf5Yxn3TI04vvvKlhgvc20uXD4DrEG24Q7u8tWt', NULL, NULL, 'IMG_7478a copy.jpg', 'en', 4);
+(1, 'Bill Trade', 'admin@gmail.com', '$2y$10$YfZEjryxGfiH8aOrxX/0jOyHYry53o9uMbyrVos4I2gogKv2t1OHG', 'jB9UvEUb6AR0945PYUtCjiWM9m1nb4AVTqTvb2dN6GpdqSCn3wQUlIPjgVGn', '2017-05-27 22:35:52', '2017-05-27 22:35:52', '1 copy.jpg', 'en', 1);
 
 -- --------------------------------------------------------
 
@@ -930,6 +951,12 @@ ALTER TABLE `categories`
 -- Indexes for table `documents`
 --
 ALTER TABLE `documents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mails`
+--
+ALTER TABLE `mails`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1043,7 +1070,7 @@ ALTER TABLE `admin_emails`
 -- AUTO_INCREMENT for table `anc_hides`
 --
 ALTER TABLE `anc_hides`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `announcements`
@@ -1067,7 +1094,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `mails`
+--
+ALTER TABLE `mails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `main_menus`
@@ -1079,7 +1112,7 @@ ALTER TABLE `main_menus`
 -- AUTO_INCREMENT for table `memberships`
 --
 ALTER TABLE `memberships`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -1091,7 +1124,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1103,7 +1136,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payment_method`
@@ -1145,7 +1178,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `socials`

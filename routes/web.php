@@ -40,7 +40,9 @@ Route::get('/news-all', "FrontController@all_news");
 Route::get('/kyc', "KYCController@index");
 Route::get('/kyc/create', "KYCController@create");
 Route::get('/kyc/delete/{id}', "KYCController@delete");
+Route::get('/kyc/edit/{id}', "KYCController@edit");
 Route::post('/kyc/save', "KYCController@save");
+Route::post('/kyc/update', "KYCController@update");
 
 // announcement
 Route::get('/announcement', "FrontController@anc");
