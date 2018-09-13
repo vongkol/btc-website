@@ -40,13 +40,13 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="file_name" class="col-sm-3">File Name 1<span class="text-danger">*</span></label>
+                <label for="file_name" class="col-sm-3">ID/Passport Front<span class="text-danger">*</span></label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control" required name="file_name" id="file_name">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="file_name1" class="col-sm-3">File Name 2<span class="text-danger">*</span></label>
+                <label for="file_name1" class="col-sm-3">ID/Passport Back<span class="text-danger">*</span></label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control" required name="file_name1" id="file_name1">
                 </div>
