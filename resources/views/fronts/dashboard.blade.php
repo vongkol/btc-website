@@ -43,8 +43,9 @@
                         </div>
                     @else
                         <div class="text-center text-white">
-                            {{$plan->name}} : <span class="text-warning">$ {{$plan->price}}</span>
+                            Invest Amount :  <span class="text-warning">$ {{$plan->amount}}</span>
                         </div>
+                       
                         <div class="text-warning text-center">
                             <a href="{{url('/investment')}}" class="btn btn-warning btn-sm">View Detail</a>
                         </div>

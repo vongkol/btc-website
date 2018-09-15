@@ -16,9 +16,7 @@
                     <div class="single-price-plan h-100 text-center">
                         <div class="package-plan">
                         <h5 class="text-primary"><b><strong>{{$plan->name}}</strong></b></h5>
-                            <div class="ca-price d-flex justify-content-center">
-                                <span>$</span><h4>{{$plan->price}}</h4>
-                            </div>
+                            
                         </div>
                         <div class="package-description" style="color: #726a84;">
                             {!! $plan->description !!}

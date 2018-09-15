@@ -26,12 +26,7 @@
                             : <strong>{{$plan->name}}</strong>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="" class="col-sm-4">Plan Price</label>
-                        <div class="col-sm-4">
-                            : <strong>$ {{$plan->price}}</strong>
-                        </div>
-                    </div>
+                   
                 </form>
             </div>
         </div>
@@ -60,11 +55,17 @@
                         </select>
                     </div>
                     <p>&nbsp;</p>
+                    <div><strong>Input Your Invest Amount($) <span class="text-danger">*</span>: </strong> <input type="number" name="amount" required onkeyup="chNum(this)"></div>
+                    
+                    <p>&nbsp;</p>
                     <div>
-                        <h5 class="text-danger">Please you pay to the following address:</h5>
+                        <h5 class="text-danger">Please send amount BTC as $<span id="sms">0</span> to the following address:</h5>
                         <p></p>
                         <u><strong class="text-primary" id='method_title'>BTC Address</strong></u>
                         <br>
+                        <div>
+                            <img src="{{asset($method->qrcode)}}" alt="">
+                        </div>
                         <div id="detail">
                             {{$method->crypto}}
                         </div>
@@ -86,6 +87,11 @@
 @endsection
 @section('js')
     <script>
+        function chNum(obj)
+        {
+            var val = $(obj).val();
+            $("#sms").html(val);
+        }
         var burl = "{{url('/')}}";
         function getMethod()
         {

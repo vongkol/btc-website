@@ -30,10 +30,10 @@ class MembershipController extends Controller
             ->join('plans', 'orders.plan_id', 'plans.id')
             ->where('orders.member_id', $id)
             ->orderBy('orders.id', 'desc')
-            ->select('orders.*', 'plans.name', 'plans.price')
+            ->select('orders.*', 'plans.name')
             ->get();
         $data['lowers'] = DB::table('memberships')
-            ->where('refby', md5($id))
+            ->where('refby', $data['member']->username)
             ->orderBy('id', 'desc')
             ->get();
         $data['payments'] = DB::table('payments')
@@ -82,43 +82,48 @@ class MembershipController extends Controller
     // delete
     public function delete($id)
     {
-        DB::table('memberships')->where('id', $id)->update(['active'=>0]);
+        DB::table('memberships')->where('id', $id)->delete();
         return redirect('/admin/membership');
     }
 
     public function edit($id)
     {
-        if(!Right::check('Page', 'u'))
-        {
-            return view('permissions.no');
-        }
-        $data['page'] = DB::table('pages')
+      
+        $data['m'] = DB::table('memberships')
             ->where('id',$id)->first();
-        return view('pages.edit', $data);
+        return view('memberships.edit', $data);
     }
 
     public function update(Request $r)
     {
-        if(!Right::check('Page', 'u'))
-        {
-            return view('permissions.no');
-        }
+       
         $data = array(
-            'title' => $r->title,
-            'description' => $r->description
+            'first_name' => $r->first_name,
+            'last_name' => $r->last_name,
+            'gender' => $r->gender,
+            'email' => $r->email,
+            'country' => $r->country,
+            'city' => $r->city,
+            'postal_code' => $r->postal_code,
+            'username' => $r->username,
+            'score' => $r->score
         );
-        $i = DB::table('pages')->where('id', $r->id)->update($data);
+        if($r->password!=null)
+        {
+            $data['password'] = bcrypt($r->password);
+        }
+        $i = DB::table('memberships')->where('id', $r->id)->update($data);
         if ($i)
         {
             $sms = "All changes have been saved successfully.";
             $r->session()->flash('sms', $sms);
-            return redirect('/admin/page/edit/'.$r->id);
+            return redirect('/admin/membership');
         }
         else
         {   
-            $sms1 = "Fail to to save changes, please check again!";
+            $sms1 = "Fail to to save changes, you might not make any change!";
             $r->session()->flash('sms1', $sms1);
-            return redirect('/admin/page/edit/'.$r->id);
+            return redirect('/admin/membership/edit/'.$r->id);
         }
     }
     public function edit_score($id)

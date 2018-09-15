@@ -14,12 +14,7 @@
                             <p>{{$plan->name}}</p>
                         </label>
                     </div>
-                    <div class="form-group row">
-                        <label for="url" class="control-label col-lg-12 col-sm-12">
-                            <p class="text-primary">Price</p>
-                            <p>{{$plan->price}}</p>
-                        </label>
-                    </div>
+                   
                     <div class="form-group row">
                         <label for="description" class="control-label col-lg-12 col-sm-12">
                             <p class="text-primary">Description</p>

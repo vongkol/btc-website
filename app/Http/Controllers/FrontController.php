@@ -12,11 +12,7 @@ class FrontController extends Controller
     // index
     public function index(Request $r)
     {
-       if(isset($_GET['ref']))
-       {
-            $ref = @$_GET['ref'];
-            $r->session()->put('ref', $ref);
-       }
+       
         $data['video'] = DB::table('videos')
             ->where('active', 1)
             ->orderBy('id', 'desc')
@@ -45,13 +41,13 @@ class FrontController extends Controller
         ->join('plans', 'orders.plan_id', 'plans.id')
         ->where('member_id', $member->id)
         ->where('orders.status', 1)
-        ->select('plans.*')
+        ->select('plans.*', 'orders.price as amount')
         ->first();
         $data['user'] = DB::table('memberships')
             ->where('id', $member->id)
             ->first();
         $data['line'] = DB::table('memberships')
-            ->where('refby', md5($member->id))
+            ->where('refby', $member->username)
             ->count();
         $m = date('m');
         $y = date('Y');
@@ -156,7 +152,8 @@ class FrontController extends Controller
             'order_date' => date('Y-m-d'),
             'plan_id' => $r->plan_id,
             'member_id' => $member->id,
-            'payment_type' => $r->payment
+            'payment_type' => $r->payment,
+            'price' => $r->amount
         );
         $plan = DB::table('plans')->where('id', $r->plan_id)->first();
         
@@ -179,9 +176,10 @@ class FrontController extends Controller
                         <td width="170">Plan Name</td>
                         <td>: {$plan->name}</td>
                     </tr>
+                    
                     <tr>
-                        <td>Price</td>
-                        <td>: $ {$plan->price}</td>
+                        <td>Invest Amount</td>
+                        <td>: $ {$r->amount}</td>
                     </tr>
                     <tr>
                         <td>Order Date</td>
@@ -229,9 +227,10 @@ EOT;
                     <td width="170">Plan Name</td>
                     <td>: {$plan->name}</td>
                 </tr>
+               
                 <tr>
-                    <td>Price</td>
-                    <td>: $ {$plan->price}</td>
+                    <td>Invest Amount</td>
+                    <td>: $ {$r->amount}</td>
                 </tr>
                 <tr>
                     <td>Order Date</td>
@@ -278,7 +277,7 @@ EOT;
             ->join('plans', 'orders.plan_id', 'plans.id')
             ->where('orders.member_id', $member->id)
             ->orderBy('orders.id', 'desc')
-            ->select('orders.*', 'plans.name', 'plans.price')
+            ->select('orders.*', 'plans.name')
             ->get();
         return view('fronts.order', $data);
    }
@@ -290,7 +289,7 @@ EOT;
            return redirect('/sign-in');
        }
        $data['lines'] = DB::table('memberships')
-            ->where('refby', md5($member->id))
+            ->where('refby', $member->username)
             ->get();
         return view('fronts.downline', $data);
    }
@@ -396,7 +395,7 @@ EOT;
             ->join('plans', 'orders.plan_id', 'plans.id')
             ->where('orders.member_id', $member->id)
             ->where('status', 1)
-            ->select('plans.*', 'orders.order_date', 'orders.status', 'orders.payment_type')
+            ->select('plans.*', 'orders.order_date', 'orders.price as amount', 'orders.status', 'orders.payment_type')
             ->first();
         return view('fronts.investment', $data);
    }

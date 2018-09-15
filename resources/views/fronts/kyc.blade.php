@@ -41,11 +41,11 @@
                 <tr>
                     <td colspan="6">
                         <p>
-                            <strong>Attached Document 1: </strong> 
+                            <strong>ID / Passport Front: </strong> 
                             <a href="{{asset($kyc->file_name)}}" target="_blank">{{$kyc->file_name}}</a>
                         </p>
                         <p>
-                            <strong>Attached Document 2: </strong> 
+                            <strong>ID / Passport Back: </strong> 
                             <a href="{{asset($kyc->file_name1)}}" target="_blank">{{$kyc->file_name1}}</a>
                         </p>
                     </td>

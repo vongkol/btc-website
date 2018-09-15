@@ -16,10 +16,11 @@ class SigninController extends Controller
     }
     
     public function login(Request $r) {
+        
         $username = $r->username;
         $pass = $r->pass;
-        $membership = DB::table('memberships')->where('active',1)->where('username', $username)->first();
-      
+        $membership = DB::table('memberships')->where('username', $username)->first();
+  
         if($membership!=null)
         {  
             if(password_verify($pass, $membership->password) && $membership->verify==1)
@@ -188,7 +189,8 @@ class SigninController extends Controller
                 $id = md5($result->id);
                 $i = Right::send_email_membership($email, $id);
                 // update recovery mode for shop owern
-                DB::select("update memberships set recovery_mode=1 where md5(id)='{$id}'");
+                DB::table('memberships')->where('id', $id)->update(['recovery_mode' => 1]);
+                
                 if($i) {
                     $r->session()->flash("sms", "Please check your email!");
                     return redirect('/membership/forget-password');
@@ -208,8 +210,15 @@ class SigninController extends Controller
         }
         public function update_password(Request $r)
         {
-            $pass = password_hash($r->password, PASSWORD_BCRYPT);
-            DB::select("update memberships set password='{$pass}', recovery_mode=0 where md5(id)='{$r->id}' and recovery_mode=1");
+            // $pass = password_hash($r->password, PASSWORD_BCRYPT);
+            DB::table('memberships')
+                ->where(DB::raw('md5(id)'), $r->id)
+                ->where('recovery_mode', 1)
+                ->update([
+                'password'=>bcrypt($r->password),
+                'recovery_mode' => 0
+                ]);
+            //DB::select("update memberships set password='{$pass}', recovery_mode=0 where md5(id)='{$r->id}' and recovery_mode=1");
             $r->session()->flash("sms", "You has been reset your password. Please login with your new password.");
             return redirect('/sign-in');
         }

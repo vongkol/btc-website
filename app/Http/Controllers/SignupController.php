@@ -8,9 +8,14 @@ use DB;
 class SignupController extends Controller
 {
     // index
-    public function index()
+    public function index(Request $r)
     {
         $data['countries'] = DB::table('apps_countries')->get();
+        $data['ref'] = "";
+        if($r->ref)
+        {
+            $data['ref'] = $r->ref;
+        }
         return view('fronts.sign-up', $data);
     }
     public function save(Request $r)
@@ -22,11 +27,9 @@ class SignupController extends Controller
         }
         $count_email = DB::table('memberships')
             ->where('email', $r->email)
-            ->where('active', 1)
             ->count();
         $counter = DB::table('memberships')
             ->where('username', $r->username)
-            ->where('active', 1)
             ->count();
         $pass_leg = strlen($r->password);
         if($count_email === 0 && $pass_leg >= 6 && $counter==0) {
@@ -39,7 +42,7 @@ class SignupController extends Controller
                 'city' => $r->city,
                 'postal_code' => $r->zipcode,
                 'username' => $r->username,
-                'refby' => session('ref'),
+                'refby' => $r->ref,
                 'password' => password_hash($r->password, PASSWORD_BCRYPT)
             );
             $sms = "The sign up has been created successfully.";
@@ -60,7 +63,7 @@ class SignupController extends Controller
                 </p>
 EOT;
                 // send email confirmation
-                Right::sms($r->email, $sms);
+                Right::send_sms($r->email, "Confirm Your Registration", $sms);
                 return view('fronts.confirm');
             }
             else
@@ -85,7 +88,9 @@ EOT;
     } 
     public function confirm($id)
     {
-        DB::statement("UPDATE memberships set verify=1 where md5(id)='{$id}'");
+        // DB::statement("UPDATE memberships set verify=1 where md5(id)='{$id}'");
+        DB::table('memberships')->where(DB::raw('md5(id)'), $id)->update(['verify'=>1]);
         return redirect('/sign-in');
+        
     }
 }

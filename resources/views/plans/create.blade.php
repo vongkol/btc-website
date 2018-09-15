@@ -44,14 +44,7 @@
                                 <input type="text" required autofocus name="name" value="{{old('name')}}" id="name" class="form-control">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="title" class="control-label col-lg-1 col-sm-2">
-                            	Price <span class="text-danger">$</span>
-                            </label>
-                            <div class="col-lg-6 col-sm-8">
-                                <input type="number" step="0.1" value="{{old('price')}}" required name="price" id="price" class="form-control">
-                            </div>
-                        </div>
+                        
                         <div class="form-group row">
                             <label for="description" class="control-label col-lg-1 col-sm-2">
                                 Description

@@ -4,3 +4,8 @@
 4 - add firstname, lastname, address, phone to documents table
 5 - update kyc information in the admin
 6 - update kyc infront end
+7 - update payment option in buy plan that allow user to input investment
+8 - update qrcode for payment address
+9 - add qrcode option in back end
+10 - add field price in orders table
+11 - add field qrcode in payment_method

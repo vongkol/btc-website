@@ -31,7 +31,6 @@ class PlanController extends Controller
     {
         $data = array(
             'name' => $r->name,
-            'price' => $r->price,
             'description' => $r->description
         );
         $sms = "The new page has been created successfully.";
@@ -65,7 +64,6 @@ class PlanController extends Controller
     {
         $data = array(
             'name' => $r->name,
-            'price' => $r->price,
             'description' => $r->description
         );
         $i = DB::table('plans')->where('id', $r->id)->update($data);

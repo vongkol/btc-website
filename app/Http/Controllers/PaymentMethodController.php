@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+
 class PaymentMethodController extends Controller
 {
     public function __construct()
@@ -31,7 +32,14 @@ class PaymentMethodController extends Controller
             'bank' => $r->bank,
             'crypto' => $r->crypto
         );
+        if($r->qrcode)
+       {
+           // upload and rename file
+           $data['qrcode'] = $r->file('qrcode')->store('uploads/qrcode/', 'custom');
+           
+       }
         $i = DB::table('payment_method')->where('id', $r->id)->update($data);
+       
         if ($i)
         {
             $sms = "All changes have been saved successfully.";

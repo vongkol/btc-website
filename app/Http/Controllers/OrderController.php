@@ -19,7 +19,7 @@ class OrderController extends Controller
             ->join('memberships', 'orders.member_id', 'memberships.id')
             ->orderBy('plans.id', 'desc')
             ->select('orders.*', 'memberships.first_name', 'memberships.last_name',
-                'plans.name', 'plans.price', 'memberships.email as cmail')
+                'plans.name', 'memberships.email as cmail')
             ->paginate(18);
         return view('orders.index', $data);
     }
@@ -57,13 +57,14 @@ class OrderController extends Controller
                         <td width="170">Plan Name</td>
                         <td>: {$plan->name}</td>
                     </tr>
-                    <tr>
-                        <td>Price</td>
-                        <td>: $ {$plan->price}</td>
-                    </tr>
+                   
                     <tr>
                         <td>Order Date</td>
                         <td>: {$order->order_date}</td>
+                    </tr>
+                    <tr>
+                        <td>Invest Ammount</td>
+                        <td>: $ {$order->price}</td>
                     </tr>
                     <tr>
                         <td>Payment Type</td>

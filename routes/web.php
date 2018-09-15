@@ -64,10 +64,10 @@ Route::get('/admin/membership/create', "MembershipController@create");
 Route::post('/admin/membership/save', "MembershipController@save");
 Route::get('/admin/membership/delete/{id}', "MembershipController@delete");
 Route::get('/admin/membership/edit/{id}', "MembershipController@edit");
-Route::post('/admin/membership/update', "MembershipController@update");
 Route::get('/admin/membership/detail/{id}', "MembershipController@detail");
 Route::get('/admin/membership/edit-score/{id}', "MembershipController@edit_score");
 Route::post('/admin/membership/score/update', "MembershipController@update_score");
+Route::post('admin/member/update', "MembershipController@update");
 
 // Page
 Route::get('/admin/plan', "PlanController@index");

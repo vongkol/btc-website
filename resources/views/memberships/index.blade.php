@@ -5,9 +5,9 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <i class="fa fa-align-justify"></i> Membership List&nbsp;&nbsp;
-                    <a href="{{url('/admin/membership/create')}}" class="btn btn-link btn-sm">
+                    {{-- <a href="{{url('/admin/membership/create')}}" class="btn btn-link btn-sm">
                         New
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="card-block">
 
@@ -15,8 +15,14 @@
                         <thead>
                             <tr>
                                 <th>&numero;</th>
-                                <th>Fullname</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
                                 <th>Email</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Earning</th>
+                                <th>Username</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -31,14 +37,15 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>
-                                        <a href="{{url('/admin/membership/detail/'.$m->id)}}">
-                                            {{$m->first_name}} {{$m->last_name}}
-                                        </a>
+                                        <a href="{{url('admin/membership/detail/'.$m->id)}}">{{$m->first_name}}</a>
                                     </td>
-                                    <td>
-                                        {{$m->email}}
-                                    </td>
-
+                                    <td>{{$m->last_name}}</td>
+                                    <td>{{$m->gender}}</td>
+                                    <td>{{$m->email}}</td>
+                                    <td>{{$m->country}}</td>
+                                    <td>{{$m->city}}</td>
+                                    <td>{{$m->score}} $</td>
+                                    <td>{{$m->username}}</td>
                                     <td>
                                         <a class="btn btn-xs btn-info" href="{{url('/admin/membership/edit/'.$m->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>
                                         <a class="btn btn-xs btn-danger" href="{{url('/admin/membership/delete/'.$m->id)}}" onclick="return confirm('Do you want to delete?')" title="Delete"><i class="fa fa-trash-o"></i></a>

@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-sm-12">
             <h3 class="text-success">
-                Thanks for your payment request. We are processing and will get back to you soon!
+                We are processing your request.
             </h3>
         </div>
     </div>

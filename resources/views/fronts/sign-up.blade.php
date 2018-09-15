@@ -33,6 +33,12 @@
                 <form action="{{url('sign-up/save')}}" method="post" id="form_provider" onsubmit="check(event)">
                     {{csrf_field()}}
                     <div class="form-group row">
+                        <label for="" class="col-sm-3">Sponsor ID</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" value="{{$ref}}" name="ref">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="" class="control-label col-sm-3">First Name <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <input type="text" name="first_name" class="form-control" value="{{old('first_name')}}" required>

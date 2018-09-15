@@ -16,7 +16,6 @@
                             <tr>
                                 <th>&numero;</th>
                                 <th>Name</th>
-                                <th>Price ($)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -26,7 +25,6 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$p->name}}</td>
-                                    <td>$ {{$p->price}}</td>
                                     <td>
                                         <a class="btn btn-xs btn-primary" href="{{url('/admin/plan/view/'.$p->id)}}" title="view"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-xs btn-info" href="{{url('/admin/plan/edit/'.$p->id)}}" title="Edit"><i class="fa fa-pencil"></i></a>

@@ -67,7 +67,7 @@
     <div class="col-sm-12">
             <h4 class="text-success">Referal Link</h4>
                  
-            <input type="text" class="form-control" readonly value="{{url('/')}}?ref={{md5($profile->id)}}">
+            <input type="text" class="form-control" readonly value="{{url('/sign-up')}}?ref={{$profile->username}}">
               <p></p>
     </div>
 </div>
@@ -81,7 +81,6 @@
             <button type="submit" class="btn submit-btn btn-danger">Reset Password</button>
         </a>
     </div>
-    
 </div>
    
 @endsection

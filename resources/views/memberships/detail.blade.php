@@ -108,11 +108,11 @@
                                     <tr>
                                         <td colspan="6">
                                             <p>
-                                                <strong>Attached Document 1 </strong>
+                                                <strong>ID / Passport Front </strong>
                                                 <a href="{{asset($kyc->file_name)}}">{{$kyc->file_name}}</a>
                                             </p>
                                             <p>
-                                                <strong>Attached Document 2 </strong>
+                                                <strong>ID / Passport Back </strong>
                                                 <a href="{{asset($kyc->file_name1)}}">{{$kyc->file_name}}</a>
                                             </p>
                                         </td>
@@ -135,7 +135,7 @@
                                 <th>Order ID</th>
                                 <th>Order Date</th>
                                 <th>Plan Name</th>
-                                <th>Price</th>
+                                <th>Amount</th>
                                 <th>Status</th>
                             </tr>
                         </thead>

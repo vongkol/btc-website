@@ -33,12 +33,12 @@
                     	action="{{url('/admin/payment-method/update')}}" 
                     	class="form-horizontal" 
                         method="post"
-                        charset="UTF-8"
+                        charset="UTF-8" enctype="multipart/form-data"
                     >
                         {{csrf_field()}}
                         <input type="hidden" name="id" id="id" value="{{$pay->id}}">
                         <div class="form-group row">
-                            <label for="bank" class="control-label col-lg-1 col-sm-2">
+                            <label for="bank" class="control-label col-sm-2">
                             	Bank <span class="text-danger">*</span>
                             </label>
                             <div class="col-lg-8 col-sm-8">
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="bank" class="control-label col-lg-1 col-sm-2">
+                            <label for="bank" class="control-label col-sm-2">
                             	Crypto <span class="text-danger">*</span>
                             </label>
                             <div class="col-lg-8 col-sm-8">
@@ -69,7 +69,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-lg-1 col-sm-2">&nbsp;</label>
+                            <label for="" class="control-label col-sm-2">QR Code</label>
+                            <div class="col-sm-8">
+                                <input type="file" name="qrcode">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-sm-2">&nbsp;</label>
                             <div class="col-lg-6 col-sm-8">
                                 <button class="btn btn-primary" type="submit">Save Change</button>
                                 <button class="btn btn-danger" type="reset">Cancel</button>

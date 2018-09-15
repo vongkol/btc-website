@@ -19,10 +19,11 @@
                 <strong>{{$plan->name}}</strong>
             </div>
         </div>
+       
         <div class="form-group row">
-            <label for="" class="col-sm-3">Price</label>
+            <label for="" class="col-sm-3">Invest Amount</label>
             <div class="col-sm-9">
-                <strong>$ {{$plan->price}}</strong>
+                <strong>$ {{$plan->amount}}</strong>
             </div>
         </div>
         <div class="form-group row">

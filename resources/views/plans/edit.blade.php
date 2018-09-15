@@ -53,22 +53,7 @@
                                 >
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="name" class="control-label col-lg-1 col-sm-2">
-                            	Price <span class="text-danger">$</span>
-                            </label>
-                            <div class="col-lg-6 col-sm-8">
-                                <input 
-                                    type="number"
-                                    step="0.1" 
-                                    required 
-                                    name="price" 
-                                    id="price" 
-                                    class="form-control"
-                                    value="{{$plan->price}}"
-                                >
-                            </div>
-                        </div>
+                       
                         <div class="form-group row">
                             <label for="description" class="control-label col-lg-1 col-sm-2">
                                 Description

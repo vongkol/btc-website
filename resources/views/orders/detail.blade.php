@@ -40,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <td>Price</td>
-                                    <td>: $ {{$plan->price}}</td>
+                                    <td>: $ {{$order->price}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Description</td>
