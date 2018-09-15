@@ -41,11 +41,19 @@
                 <tr>
                     <td colspan="6">
                         <p>
+<<<<<<< HEAD
                             <strong>ID / Passport Front: </strong> 
                             <a href="{{asset($kyc->file_name)}}" target="_blank">{{$kyc->file_name}}</a>
                         </p>
                         <p>
                             <strong>ID / Passport Back: </strong> 
+=======
+                            <strong>ID/Passport Front: </strong> 
+                            <a href="{{asset($kyc->file_name)}}" target="_blank">{{$kyc->file_name}}</a>
+                        </p>
+                        <p>
+                            <strong>ID/Passport Back: </strong> 
+>>>>>>> d68c6fce333bd5f6c7adc8180591e535ff9b6cfa
                             <a href="{{asset($kyc->file_name1)}}" target="_blank">{{$kyc->file_name1}}</a>
                         </p>
                     </td>

@@ -42,14 +42,16 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="file_name" class="col-sm-3">ID / Passport Front</label>
+
+                <label for="file_name" class="col-sm-3">ID/Passport Front</label>
                 <div class="col-sm-9">
                     <div class="text-info">Leave this field empty to keep the onle one.</div>
                     <input type="file" class="form-control" name="file_name" id="file_name">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="file_name1" class="col-sm-3">ID / Passport Back</label>
+
+                <label for="file_name1" class="col-sm-3">ID/Passport Back</label>
                 <div class="col-sm-9">
                     <div class="text-info">Leave this field empty to keep the onle one.</div>
                     <input type="file" class="form-control" name="file_name1" id="file_name1">
